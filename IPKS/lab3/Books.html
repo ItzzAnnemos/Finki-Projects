@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+  class book {
+    constructor(title, author, alreadyRead) {
+      this.title = title
+      this.author = author
+      this.alreadyRead = alreadyRead
+    }
+
+    print() {
+      if (this.alreadyRead) {
+          console.log(`You have already read \"${this.title}\" by ${this.author}`)
+      } else {
+          console.log(`You still need to read \"${this.title}\" by ${this.author}`)
+      }
+    }
+  }
+
+  const books = []
+  books.push(new book("The Hobbit", "J.R.R. Tolkien", true))
+  books.push(new book("The Lord of the Rings", "J.R.R. Tolkien", false))
+
+  for (let i = 0; i < books.length; i++) {
+      books[i].print()
+  }
+</script>
+</html>

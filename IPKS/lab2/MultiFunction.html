@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>About Me</title>
+</head>
+<body>
+<h1>About Me</h1>
+
+<ul>
+  <li>Name: <span id="name"></span>
+  <li>Index: <span id="index"></span>
+  <li>Hometown: <span id="hometown"></span>
+</ul>
+</body>
+
+<script>
+  let body = document.getElementsByTagName("body").item(0)
+  body.style.fontFamily = "Arial"
+
+  let name = document.getElementById("name")
+  name.innerText = "Nikola"
+
+  let index = document.getElementById("index")
+  index.innerText = "223125"
+
+  let home = document.getElementById("hometown")
+  home.innerText = "Kocani"
+
+</script>
+</html>

@@ -1,0 +1,475 @@
+body {
+    margin: 0;
+    background: url("/images/bg-body.gif");
+    font-family: sans-serif;
+}
+
+#page {
+    width: 961px;
+    margin: auto;
+    background: url("/images/bg-page.gif");
+}
+
+.jumbotron {
+    display: inline-block;
+    background: url("/images/lion-family.jpg");
+    width: 597px;
+    height: 357px;
+    float: right;
+    margin-top: -293px;
+    margin-right: 18px;
+}
+
+#header ul:first-of-type {
+    width: 300px;
+    display: flex;
+    list-style: none;
+    border-bottom: 1px solid #875115;
+    border-top: 1px solid #875115;
+    padding-left: 0;
+    margin-left: 30px;
+}
+
+#header ul:first-of-type h2 {
+    margin: 0;
+}
+
+#header ul:first-of-type a, #header ul:first-of-type span {
+    color: #900017;
+    text-decoration: none;
+}
+
+#header ul:first-of-type li {
+    border-left: 1px solid #875115;
+    padding: 5px;
+}
+
+.first {
+    border: none !important;
+    padding-top: 0 !important;
+}
+
+#header > a:nth-of-type(2) {
+    display: inline-block;
+    background: url("/images/interface.gif") 0 -260px no-repeat;
+    width: 305px;
+    height: 50px;
+    margin-left: 26px;
+    text-align: center;
+    padding-top: 13px;
+    text-decoration: none;
+    color: #FBFBFB;
+    font-weight: bold;
+    font-size: large;
+}
+
+#navigation {
+    display: flex;
+    width: 597px;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    float: right;
+    margin-top: -350px;
+    padding-left: 0;
+}
+
+#navigation a {
+    text-decoration: none;
+    color: white;
+}
+
+#navigation a:hover {
+    color: #AD8753;
+}
+
+#navigation li {
+    height: 40px;
+    padding-top: 15px;
+}
+
+.selected {
+    width: 80px;
+    height: 40px;
+    background: url("/images/navigation.gif") no-repeat;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.selected a {
+    color: #75311F !important;
+}
+
+#header div:last-of-type {
+    display: flex;
+    align-items: center;
+    background: url("/images/interface.gif") 0 -195px no-repeat;
+    width: 960px;
+    height: 65px;
+    margin-left: 25px;
+}
+
+#header div:last-of-type h1 {
+    margin: 0;
+    padding-left: 10px;
+    color: #DFC185;
+}
+
+#header div:last-of-type p {
+    margin-left: 30px;
+    color: #D9D9D9;
+}
+
+#header div:last-of-type p a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#featured {
+    background: url("/images/interface.gif") no-repeat;
+    height: 193px;
+}
+
+#featured h2 {
+    color: #900017;
+    margin-left: 30px;
+    font-size: xx-large;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    margin-top: 5px;
+}
+
+#featured ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    padding-left: 0;
+    margin: 0 30px;
+}
+
+#featured ul li {
+    width: 98px;
+    text-align: center;
+}
+
+#featured ul li:hover {
+    opacity: 0.7;
+}
+
+#featured ul li a:last-of-type {
+    text-decoration: none;
+    color: #271500;
+}
+
+#featured ul li:first-of-type a:first-child {
+    display: inline-block;
+    background: url("/images/penguin.jpg") no-repeat;
+    width: 98px;
+    height: 98px;
+}
+
+#featured ul li:nth-of-type(2) a:first-child {
+    display: inline-block;
+    background: url("/images/elephant.jpg") no-repeat;
+    width: 98px;
+    height: 98px;
+}
+
+#featured ul li:nth-of-type(3) a:first-child {
+    display: inline-block;
+    background: url("/images/owl.jpg") no-repeat;
+    width: 98px;
+    height: 98px;
+}
+
+#featured ul li:nth-of-type(4) a:first-child {
+    display: inline-block;
+    background: url("/images/butterfly.jpg") no-repeat;
+    width: 98px;
+    height: 98px;
+}
+
+#featured ul li:nth-of-type(5) a:first-child {
+    display: inline-block;
+    background: url("/images/turtle.jpg") no-repeat;
+    width: 98px;
+    height: 98px;
+}
+
+#featured ul li:nth-of-type(6) a:first-child {
+    display: inline-block;
+    background: url("/images/snake.jpg") no-repeat;
+    width: 98px;
+    height: 98px;
+}
+
+#featured ul li:nth-of-type(7) a:first-child {
+    display: inline-block;
+    background: url("/images/gorilla.jpg") no-repeat;
+    width: 98px;
+    height: 98px;
+}
+
+#featured ul li:last-of-type a:first-child {
+    display: inline-block;
+    background: url("/images/button-view-gallery.jpg") no-repeat;
+    width: 98px;
+    height: 98px;
+}
+
+.section1 {
+    display: inline-block;
+    float: left;
+    width: 255px;
+    margin-left: 25px;
+}
+
+.section1 h2, .section2 h2, .section3 h2 {
+    color: #AE0A25;
+    margin-bottom: 0;
+}
+
+#article {
+    color: #A65316;
+    list-style: none;
+    padding-left: 0;
+}
+
+#article a {
+    color: #AE0A25;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#article li {
+    border-top: 1px dashed #A65316;
+    padding-top: 15px;
+}
+
+#article p > a {
+    text-decoration: underline;
+    color: #A65316;
+    font-weight: normal;
+}
+
+.section2 {
+    display: inline-block;
+    width: 450px;
+    margin: 0 10px;
+}
+
+.section2 > p:first-of-type {
+    color: #875115;
+    font-weight: bold;
+}
+
+.section2 > ul {
+    background: url("/images/dolphins.jpg") no-repeat;
+    padding-left: 224px;
+    color: #875115;
+    margin: 0;
+}
+
+.section2 > ul p, p a {
+    margin: 0;
+    color: #875115;
+}
+
+#section1 {
+    display: inline-block;
+    width: 70%;
+}
+
+#section1 ul, #section2 ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    gap: 5px;
+}
+
+#section1 ul li, #section2 ul li {
+    display: inline-block;
+}
+
+#section1 ul h4 {
+    display: inline-block;
+    float: right;
+    width: 180px;
+    margin: 0;
+}
+
+#section1 ul h4 a, #section2 ul h4 a {
+    text-decoration: none;
+    color: #875115;
+}
+
+#section2 ul h4 {
+    width: 140px;
+    color: #875115;
+    margin: 0;
+}
+
+#section2 ul p {
+    display: inline-block;
+    color: #875115;
+    margin: 0;
+}
+
+#section1 ul p {
+    display: inline-block;
+    float: right;
+    width: 180px;
+    margin: -45px 0 0 0;
+    color: #875115;
+}
+
+#section2 {
+    display: inline-block;
+    width: 30%;
+    float: right;
+    margin-top: -10px;
+}
+
+.section3 {
+    display: inline-block;
+    float: right;
+    width: 210px;
+}
+
+#email {
+    display: block;
+    background: url("/images/icons.gif") no-repeat;
+    width: 26px;
+    height: 19px;
+    padding-left: 30px;
+    color: #875115;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#facebook {
+    display: block;
+    background: url("/images/icons.gif") 0 -19px no-repeat;
+    width: 26px;
+    height: 20px;
+    padding-left: 30px;
+    color: #875115;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#twitter {
+    display: block;
+    background: url("/images/icons.gif") 0 -41px no-repeat;
+    width: 26px;
+    height: 20px;
+    padding-left: 30px;
+    color: #875115;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.section3 form h3 {
+    color: #AE0A25;
+    font-weight: lighter;
+    margin-bottom: 0;
+}
+
+.section3 form h2 {
+    margin-top: 0;
+}
+
+.section3 img {
+    margin-top: 38px;
+}
+
+#footer {
+    width: 100%;
+    position: absolute;
+    height: 247px;
+    background: url("/images/bg-footer.gif");
+    margin-left: -364px;
+    margin-top: 40px;
+}
+
+#footer > div {
+    width: 961px;
+    margin: auto;
+}
+
+.logo {
+    display: inline-block;
+    background: url("/images/animal-kingdom.jpg") no-repeat;
+    width: 203px;
+    height: 178px;
+    float: left;
+    margin-top: 4px;
+}
+
+#footer > div div {
+    display: inline-block;
+    width: 250px;
+    color: #AD8753;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+#footer > div div p {
+    margin: 0;
+}
+
+.navigation {
+    list-style: none;
+    padding-left: 0;
+    display: inline-block;
+    width: 140px;
+    margin-left: 40px;
+}
+
+.navigation li {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.navigation li:nth-of-type(2n) {
+    float: right;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #AD8753;
+}
+
+#footer ul:last-of-type {
+    list-style: none;
+    padding-left: 0;
+    float: right;
+    margin-top: 50px;
+    margin-right: 25px;
+}
+
+#footer ul:last-of-type li {
+    margin-bottom: 10px;
+}
+
+#footer ul:last-of-type a {
+    text-decoration: none;
+    color: #AD8753;
+    margin-bottom: 10px;
+}
+
+#footer > div > p {
+    text-align: center;
+    clear: both;
+    color: #AD8753;
+    margin-top: 55px;
+}

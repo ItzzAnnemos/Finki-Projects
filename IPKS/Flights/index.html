@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            width: 120px;
+            display: inline-block;
+        }
+        ul {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Registriraj let</h1>
+<div>
+    <span>Ime i prezime</span><input id="name" type="text"> <br>
+    <span>Oznaka na letaloto</span><input id="oznaka" type="text"> <br>
+    <span>Koordinati na let</span><input id="koords" type="text"> <br>
+    <span>Radius na let</span><input id="radius" type="text"> <br>
+    <span>Visina na let</span><input id="visina" type="text"> <br>
+    <span>Tip na letalo</span>
+    <select id="tip">
+        <option>Edrilica</option>
+        <option>Dron</option>
+    </select>
+
+    <button onclick="najavi()">Najavi</button>
+
+    <h2>Registrirani letovi</h2>
+    <p>Vkupno najaveni letovi <span id="najaveni">0</span></p>
+
+    <div>
+        <ul id="list">
+        </ul>
+    </div>
+</div>
+
+<script>
+    function najavi() {
+        var nameSur = document.getElementById("name").value
+        var oznaka = document.getElementById("oznaka").value
+        var koords = document.getElementById("koords").value
+        var radius = document.getElementById("radius").value
+        var visina = document.getElementById("visina").value
+        var tip = document.getElementById("tip").selectedIndex
+        if (tip === 0) {
+            tip = "Edrilica"
+        } else {
+            tip = "Dron"
+        }
+
+        if (nameSur && oznaka && koords && radius && visina) {
+            if (oznaka.substring(0, 7) === "Z3-UNR-" && !(isNaN(parseInt(oznaka.substring(7))))) {
+                console.log(nameSur, oznaka, koords, radius, visina)
+                var list = document.getElementById("list")
+
+                if (oznaka.charCodeAt(7) === oznaka.charCodeAt(10) && oznaka.charCodeAt(8) === oznaka.charCodeAt(9)) {
+                    list.innerHTML += "<li>" + nameSur + ", " + oznaka + "<br> Radius: " + radius + ", Visina: " + visina + "<br> " + tip + " <br> <button onclick='potvrdi(this)'>Potvrdi</button><button onclick='otkazi(this)'>Otkazi</button></li>"
+                } else {
+                    if (parseInt(radius) < 500 && parseInt(visina) < 150) {
+                        list.innerHTML += "<li>" + nameSur + ", " + oznaka + "<br> Radius: " + radius + ", Visina: " + visina + "<br> " + tip + " <br> <button onclick='potvrdi(this)'>Potvrdi</button><button onclick='otkazi(this)'>Otkazi</button></li>"
+                    }
+                }
+            }
+            if (tip === "Edrilica") {
+                list.lastElementChild.style.border = "2px solid black"
+            }
+            if (tip === "Dron") {
+                if (radius === visina) {
+                    list.lastElementChild.style.border = "2px solid black"
+                }
+            }
+        } else {
+            alert("Imate prazni inputi")
+        }
+
+    }
+
+    function potvrdi(button) {
+        button.disabled = true
+        button = button.nextSibling
+        button.disabled = true
+        button.parentElement.style.background = "lime"
+
+        momentalni()
+    }
+
+    function otkazi(button) {
+        button.parentElement.remove()
+    }
+
+    function momentalni() {
+        var najaveni = document.getElementById("najaveni")
+        var tmp = parseInt(najaveni.innerText)
+        tmp += 1
+        najaveni.innerText = tmp
+    }
+</script>
+
+</body>
+</html>

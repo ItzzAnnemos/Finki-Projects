@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+    <script>
+    </script>
+</head>
+<body>
+<h1>Калкулатор</h1>
+<div>
+    <div style="text-align:left; float:left">
+        <p>а <input id="a" style="width:15px"/>
+            b <input id="b" style="width:15px"/></p>
+        <p>
+            <input id="plus" type="radio" name="oper" checked>a+b
+            <input id="minus" type="radio" name="oper">a-b
+            <input id="mnoz" type="radio" name="oper">a*b
+            <input id="del" type="radio" name="oper">a/b
+            <br>
+            <input id="sin" type="radio" name="oper">sin(a)
+            <input id="cos" type="radio" name="oper">cos(a)
+            <input id="tg" type="radio" name="oper">tg(a)
+            <br>
+            <input id="cel" type="radio" name="oper">[a]
+            <input id="stepen" type="radio" name="oper">a<sup>b</sup>
+            <input id="koren" type="radio" name="oper">&radic;<span style="text-decoration:overline">a</span>
+        </p>
+        <button onclick="calculate()">Пресметај</button>
+        <p id="rezultat"></p>
+    </div>
+</div>
+<br/>
+</body>
+
+<script>
+    function calculate() {
+        let a = document.getElementById("a").value
+        let b = document.getElementById("b").value
+        a = parseFloat(a)
+        b = parseFloat(b)
+
+        let operations = document.getElementsByName("oper")
+        let operation
+
+        for (let i = 0;i < operations.length;i++) {
+            if (operations[i].checked) {
+                operation = operations[i].id
+                break
+            }
+        }
+
+        let rez = document.getElementById("rezultat")
+
+        if (operation === "plus") {
+            rez.innerText = a + b
+        } else if (operation === "minus") {
+            rez.innerText = a - b
+        } else if (operation === "mnoz") {
+            rez.innerText = a * b
+        } else if (operation === "del") {
+            rez.innerText = a / b
+        } else if (operation === "sin") {
+            rez.innerText = Math.sin(a)
+        } else if (operation === "cos") {
+            rez.innerText = Math.cos(a)
+        } else if (operation === "tg") {
+            rez.innerText = Math.tan(a)
+        } else if (operation === "cel") {
+            rez.innerText = Math.ceil(a)
+        } else if (operation === "stepen") {
+            rez.innerText = Math.pow(a, b)
+        } else {
+            rez.innerText = Math.sqrt(a)
+        }
+    }
+</script>
+</html>

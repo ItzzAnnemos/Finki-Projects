@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=100%, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <p>Finki<span>Page</span></p>
+    <div class="nav">
+        <button class="not-active"><a href="index.html" class="no-decoration not-active">HOME</a></button>
+        <button class="active"><a href="Contact.html" class="no-decoration active">CONTACT</a></button>
+        <button class="not-active"><a href="Info.html" class="no-decoration not-active">INFO</a></button>
+    </div>
+</header>
+
+<div class="main2">
+    <h3>Contact Form</h3>
+    <div class="contact">
+        <div class="contact-form">
+            <div class="first">
+                <label>First Name<br>
+                    <input placeholder="Your name.." class="input-decoration">
+                </label>
+
+                <label>Date of Birth<br>
+                    <input type="date" placeholder="dd-----yyyy" class="input-decoration">
+                </label>
+                <label for="country">Country<br>
+                    <select name="country" id="country" class="input-decoration">
+                        <option value="Australia">Australia</option>
+                        <option value="Macedonia">Macedonia</option>
+                        <option value="England">England</option>
+                    </select>
+                </label>
+                <span>CV <input type="file"></span>
+            </div>
+            <div class="second">
+                <label>Last Name<br>
+                    <input placeholder="Your last name.." class="input-decoration">
+                </label>
+                <label>Subject<br>
+                    <textarea name="subject" rows="9" class="input-decoration">Write something..
+                </textarea>
+                </label>
+            </div>
+        </div>
+        <button>Submit</button>
+    </div>
+</div>
+
+</body>
+</html>

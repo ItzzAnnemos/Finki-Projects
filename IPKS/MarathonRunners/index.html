@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 120px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Marathon runners</h1>
+<div>
+    <span>Name</span> <input id="name" type="text"> <br>
+    <span>Surname</span> <input id="surname" type="text"> <br>
+    <span>Age</span> <input id="age" type="text"> <br>
+    <span>Code</span> <input id="code" type="text"> <br>
+    <span>Sex</span>
+    <select id="sex">
+        <option>Male</option>
+        <option>Female</option>
+    </select> <br>
+</div>
+<button onclick="add_runner()">Add</button>
+
+<table id="table">
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Tag</th>
+        <th>Options</th>
+    </tr>
+</table>
+
+<p>Number of confirmed runners <span id="confirmed">0</span></p>
+
+<script>
+    function add_runner() {
+        var name = document.getElementById("name").value
+        var surname = document.getElementById("surname").value
+        var age = document.getElementById("age").value
+        var code = document.getElementById("code").value
+        var sex = document.getElementById("sex").selectedIndex
+
+        var tag = transformString(code)
+
+        var table = document.getElementById("table")
+
+        table.innerHTML += "<tr><td>" + name + "</td><td>" + surname + "</td> <td>" + tag + "</td> <td><button onclick='potvrdi(this)'>Potvrdi</button> <button onclick='izbrisi(this)'>Izbrisi</button></td></tr>"
+
+        var inputs = document.getElementsByTagName("input")
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].value = ""
+        }
+
+        if (sex === 0) {
+            sex = "Male"
+            table.lastElementChild.style.background = "blue"
+        } else if (sex === 1) {
+            sex = "Female"
+            table.lastElementChild.style.background = "pink"
+        }
+
+        if (parseInt(age) < 18) {
+            potvrdi()
+        }
+    }
+    function transformString(inputString) {
+        if (typeof inputString !== 'string') {
+            return 'Invalid input. Please provide a string.';
+        }
+
+        // Transform the string based on the specified conditions
+        const transformedString = inputString.split('').map(char => {
+            if (/[a-z]/.test(char)) {
+                return char.toUpperCase();
+            } else if (/[A-Z]/.test(char)) {
+                return char.toLowerCase();
+            } else if (/[0-4]/.test(char)) {
+                return char;
+            } else {
+                return '';
+            }
+        }).join('');
+
+        return transformedString;
+    }
+
+    function potvrdi(button) {
+        button.disabled = true
+        button = button.nextSibling
+        button.disabled = true
+        var confirmed = document.getElementById("confirmed")
+        var tmp = parseInt(confirmed.innerText)
+        tmp += 1
+        confirmed.innerText = tmp
+    }
+
+    function izbrisi(button) {
+        var row = button.parentElement.parentElement
+        row.remove()
+    }
+
+</script>
+
+</body>
+</html>

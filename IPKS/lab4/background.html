@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="body">
+
+<h1>Промена на позадина</h1>
+<input value="color" name="group" type="radio"> Color
+<input value="image" name="group" type="radio"> Image <br>
+<span>Value: </span> <input id="value" type="text"> <br>
+
+<button onclick="change()">Промени</button>
+
+</body>
+
+<script>
+    function change() {
+        let type = document.getElementsByName("group")
+        let value = document.getElementById("value").value
+        let body = document.getElementById("body")
+
+        let selected = ""
+        for (let i = 0; i < type.length; i++) {
+            if (type[i].checked) {
+                selected = type[i].value;
+                break;
+            }
+
+        }
+        if (selected === "color") {
+            body.style.background = value
+        } else {
+            body.style.backgroundImage = "url('" + value + "')"
+        }
+    }
+</script>
+</html>

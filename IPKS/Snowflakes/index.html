@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+</head>
+<body>
+<img src="s1.png"/>
+<img src="s2.png"/>
+<img src="s3.png"/>
+<img src="s4.png"/>
+<img src="s5.png"/>
+<img src="s6.png"/>
+
+</body>
+
+<script>
+    let imgs = document.getElementsByTagName("img")
+    for (let i = 0; i < imgs.length; i++) {
+        let random_pos = Math.floor(Math.random() * 1000)
+        imgs.item(i).style.width = 150 + "px"
+        imgs.item(i).style.position = "absolute"
+        imgs.item(i).style.top = -200 + "px"
+        imgs.item(i).style.left = random_pos + "px"
+    }
+
+    for (let i = 0; i < imgs.length; i++) {
+        fall_down(imgs.item(i))
+    }
+
+    function fall_down(image) {
+        let random_speed = Math.max(3000, Math.floor(Math.random() * 10000))
+        anime({
+            targets: image,
+            top: 800 + "px",
+            duration: Math.max(3000, Math.floor(Math.random() * 10000)),
+            easing: "linear",
+            loop: true
+        })
+    }
+</script>
+</html>

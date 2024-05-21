@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <span>Items: </span><input id="items" type="text"> <br>
+    <span>Type: </span>
+    <select id="type">
+        <option>Radio button</option>
+        <option>Check box</option>
+    </select>
+    <button onclick="add()">Прикажи</button>
+</div>
+<div id="container"></div>
+</body>
+
+<script>
+    function add() {
+        let items = document.getElementById("items").value
+        let parts = items.split(',')
+        let type = document.getElementById("type").selectedIndex
+        let container = document.getElementById("container")
+
+        if (type === 0) {
+            for (let i = 0; i < parts.length; i++) {
+                let radio = document.createElement("input")
+                radio.type = "radio"
+                radio.name = "options"
+                radio.value = parts.at(i)
+                let label = document.createElement("label")
+                label.innerHTML = parts.at(i)
+
+                container.appendChild(radio)
+                container.appendChild(label)
+            }
+        } else {
+            for (let i = 0; i < parts.length; i++) {
+                let checkbox = document.createElement("input")
+                checkbox.type = "checkbox"
+                checkbox.name = "options"
+                checkbox.value = parts.at(i)
+                let label = document.createElement("label")
+                label.innerHTML = parts.at(i)
+
+                container.appendChild(checkbox)
+                container.appendChild(label)
+            }
+        }
+    }
+</script>
+</html>

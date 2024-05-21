@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    x = removeDuplicates(20, 30, 20, 30, 2, 5, 30, 5, 5, 5, 6, 3, 4, 3, 3)
+
+    function removeDuplicates(...arr) {
+        let count = 0
+        for (let i = 0; i < arr.length - 1; i++) {
+            for (let l = i + 1; l < arr.length; l++) {
+                if (arr[i] === arr[l] && arr[i] !== undefined) {
+                    count++
+                    for (let j = l; j < arr.length; j++) {
+                        arr[j] = arr[j + 1]
+                    }
+                    arr[arr.length - count] = undefined
+                    l--
+                }
+            }
+        }
+        return arr.slice(0, arr.length - count)
+    }
+
+    console.log(x)
+</script>
+</html>

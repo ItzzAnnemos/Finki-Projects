@@ -1,0 +1,66 @@
+h1 {
+    border-bottom: solid gray 2px;
+    margin: 1%;
+    padding-bottom: 2%;
+    padding-top: 1%;
+}
+
+footer {
+    text-align: center;
+    margin: 3%;
+}
+
+#example {
+    color: red;
+    border-color: gray;
+    border-style: dashed;
+    border-radius: 2px;
+    margin: 1%;
+}
+
+#tags {
+    list-style: upper-roman;
+}
+
+#tags li::marker {
+    color: black;
+}
+
+#tags li:first-child {
+    color: cadetblue;
+}
+
+#tags li:nth-child(2) {
+    color: green;
+}
+
+#tags li:nth-child(3) {
+    color: yellow;
+}
+
+#tags li:last-child {
+    color: pink;
+}
+
+h3 {
+    margin: 1%;
+    border-top: solid gray 2px;
+    padding-top: 20px;
+}
+
+#str2 {
+    border-left: 2px solid gray;
+    margin-left: 1%;
+}
+
+p {
+    margin: 1%;
+}
+
+#list2 {
+    list-style: lower-alpha;
+}
+
+.noBullet {
+    list-style: none;
+}

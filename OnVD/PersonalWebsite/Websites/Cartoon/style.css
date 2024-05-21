@@ -1,0 +1,394 @@
+/* Индекс, име и презиме */
+/* ID_NO, Name and Surname */
+/* Loading fonts */
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('/fonts/opensans-regular-webfont.eot');
+    src: url('/fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/opensans-regular-webfont.woff') format('woff'),
+    url('/fonts/opensans-regular-webfont.ttf') format('truetype'),
+    url('/fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gorditasregular';
+    src: url('/fonts/gorditas-regular-webfont.eot');
+    src: url('/fonts/gorditas-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/gorditas-regular-webfont.woff') format('woff'),
+    url('/fonts/gorditas-regular-webfont.ttf') format('truetype'),
+    url('/fonts/gorditas-regular-webfont.svg#gorditasregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'open_sans_semiboldregular';
+    src: url('/fonts/opensans-semibold-webfont.eot');
+    src: url('/fonts/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/opensans-semibold-webfont.woff') format('woff'),
+    url('/fonts/opensans-semibold-webfont.ttf') format('truetype'),
+    url('/fonts/opensans-semibold-webfont.svg#open_sans_semiboldregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'open_sans_semibolditalic';
+    src: url('/fonts/opensans-semibolditalic-webfont.eot');
+    src: url('/fonts/opensans-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/opensans-semibolditalic-webfont.woff') format('woff'),
+    url('/fonts/opensans-semibolditalic-webfont.ttf') format('truetype'),
+    url('/fonts/opensans-semibolditalic-webfont.svg#open_sans_semibolditalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body
+{
+    width: 1266px;
+    margin: auto;
+    background-image: url("./images/bg-body.jpg");
+    background-position:center;
+
+}
+#header
+{
+    background-color: #ECEAD1;
+    margin-top: 15px;
+    height: 700px;
+}
+#header div div:nth-of-type(1)
+{
+    float: left;
+    display: inline-block;
+    width: 650px;
+    margin-left: 150px;
+    margin-top: 40px;
+}
+#header div div:nth-of-type(2)
+{
+    float: right;
+    width: 370px;
+    margin-bottom: 100px;
+}
+#logo
+{
+    margin-left: -60px;
+}
+#header ul
+{
+    float: left;
+    display: inline-block;
+    background: white;
+    margin:auto;
+    margin-left: 133px;
+    height: 100px;
+    width: 960px;
+}
+#header ul li
+{
+    padding: 25px 60px 25px 60px;
+    display: inline-block;
+}
+#header ul li a
+{
+    text-decoration: none;
+    color: dodgerblue;
+    font-size: 20px;
+}
+.current
+{
+    background-image: url("./images/interface.png");
+    background-position: 15px -60px;
+    font-weight: bold;
+    color: red !important;
+}
+#header div div:nth-of-type(2) p
+{
+    text-align: center;
+    width: 250px;
+    font-family: "open_sansregular", sans-serif;
+}
+#header div div:nth-of-type(2) a
+{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+#body
+{
+    clear: both;
+}
+#clickhere2
+{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    padding-top: 15px;
+    background-image: url("./images/interface.png");
+    background-repeat: no-repeat;
+    background-position: 0 -133px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+#clickhere
+{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    background-image: url("./images/interface.png");
+    background-repeat: no-repeat;
+    background-position: 0 -248px;
+    padding-top: 17px;
+    font-family: 'gorditasregular',sans-serif;
+    font-size: 30px;
+}
+.gallery li a img
+{
+    border: 1px solid saddlebrown;
+}
+.gallery li a img:hover
+{
+    opacity: 80%;
+}
+
+#header div div:nth-of-type(2) a span
+{
+    font-size: 10px;
+    display: block;
+}
+.play
+{
+    padding-bottom: 100px;
+}
+#footer ul li:first-child a:hover
+{
+    color:lightblue;
+}
+
+#body
+{
+    background: url("./images/bg-content.png");
+    margin: auto;
+}
+#body
+{
+    width: 1000px;
+    height: 775px;
+    margin: auto;
+    background: white;
+    margin-top: -35px;
+}
+.section
+{
+    background: white;
+}
+.aside h1
+{
+    color: red;
+}
+.aside
+{
+    float: left;
+    display: inline-block;
+    width: 625px;
+    margin-left: 50px;
+}
+.sidebar div
+{
+    background-color: #E3EFF5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.sidebar div h2
+{
+    background-image: url("./images/interface.png");
+    background-repeat: no-repeat;
+    height: 40px;
+    background-position: 0 -384px;
+    text-align: center;
+    padding-top: 10px;
+    padding-right: 60px;
+    color: white;
+}
+.sidebar div a
+{
+    width: 70px;
+    height: 40px;
+    display: inline-block;
+
+}
+#twitter
+{
+
+    background-image: url("./images/icons.png");
+    background-repeat: no-repeat;
+    background-position: 10px 0;
+    color: rgba(0,0,0,0);
+}
+#facebook
+{
+    background-image: url("./images/icons.png");
+    background-repeat: no-repeat;
+    background-position:15px -40px;
+    color: rgba(0,0,0,0);
+}
+#googleplus
+{
+    background-image: url("./images/icons.png");
+    background-repeat: no-repeat;
+    background-position:15px -80px;
+    color: rgba(0,0,0,0);
+}
+.sidebar
+{
+    float: right;
+    display: inline-block;
+    margin-right: 30px;
+}
+.section
+{
+    clear: both;
+    background-color: #E3EFF5;
+    height: 200px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.gallery
+{
+    float: left;
+    margin-left: -30px;
+}
+.gallery li
+{
+    display: inline-block;
+    padding-left: 10px;
+}
+.paging
+{
+    float: right;
+    margin-right: 60px;
+    display: inline-block;
+}
+.section div h2
+{
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-bottom: -10px;
+    height: 36px;
+    background: url("./images/interface.png") no-repeat -6px -390px;
+    color: white;
+}
+.next
+{
+    width: 180px;
+    height: 80px;
+    display: inline-block;
+    background: url("hover.png") no-repeat 0 -270px;
+    color: rgba(0,0,0,0);
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.next:hover
+{
+    background: url("hover.png") no-repeat -215px -270px;
+    color: rgba(0,0,0,0);
+}
+.paging div ul li
+{
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 10px;
+}
+.paging div ul li a
+{
+    text-decoration: none;
+    color: mediumblue;
+}
+.prev
+{
+    margin-left: 10px;
+    display: inline;
+    width: 20px;
+    padding-right: 20px;
+    border-right: 1px solid mediumblue;
+}
+.prev
+{
+    text-decoration: none;
+    color: mediumblue;
+}
+.paging div ul
+{
+    display: inline;
+    width: 50px;
+    margin-left: -40px;
+}
+#footer
+{
+    height: 20px;
+    width: 1000px;
+    background-color: #131F60;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 5px 0 30px 0;
+}
+#footer ul li
+{
+    display: inline-block;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-right: 1px solid mediumblue;
+}
+#footer ul li:last-of-type
+{
+    border-right: none !important;
+}
+.play
+{
+    position: absolute;
+    margin-top: -347px;
+    color: rgba(0,0,0,0);
+    margin-left: 300px;
+    background: url(./images/interface.png) no-repeat 9px 44px;
+}
+
+.aside p
+{
+    line-height: 23px;
+}
+#footer ul
+{
+    float: left;
+    margin-left: -20px;
+    display: inline-block;
+}
+#footer p
+{
+    float:right;
+    color: mediumblue;
+    margin-right: 15px;
+    display: inline-block;
+}
+#footer ul li a
+{
+    text-decoration: none;
+    color: blue;
+}
+#body::before
+{
+    content: '';
+    position:absolute;
+    width: 70%;
+    height: 1px;
+    margin-left: 35px;
+    background-color: lightblue;
+}
+.readmore
+{
+    color: orange;
+}
+.readmore:hover
+{
+    opacity: 50%;
+    color:black;
+}

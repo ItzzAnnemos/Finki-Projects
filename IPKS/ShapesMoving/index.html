@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+</head>
+<body>
+<input type="button" value="<" onclick="move('<')">
+<input type="button" value=">" onclick="move('>')">
+</body>
+
+<script>
+    data = '[{"background-color":"red", "width":"100px", "height":"100px"}, {"background-color":"green", "width":"50px", "height":"100px"}, {"background-color":"blue", "width":"100px", "height":"50px"}]';
+    data = JSON.parse(data);
+
+    const arr = []
+    let index = 0
+
+    for (let i = 0; i < data.length; i++) {
+        arr.push(create(data[i]))
+    }
+
+    document.body.appendChild(arr[0])
+
+    function create(element_data) {
+        let element = document.createElement('div')
+        element.style.background = element_data["background-color"]
+        element.style.height = element_data.height
+        element.style.width = element_data.width
+        element.style.position = 'absolute'
+        element.style.left = 0 + "px"
+        element.id = "current"
+
+        return element
+    }
+
+    function move(direction) {
+        const currentDiv = arr[index];
+
+        if (direction === ">") {
+            let i = 0
+            currentDiv.style.left = 0 + "px"
+
+            let interval = setInterval(function () {
+                currentDiv.style.left = i + "px"
+                if (i > document.body.clientWidth + 50) {
+                    clearInterval(interval)
+
+                    document.getElementById("current").parentElement.removeChild(arr[index])
+                    if (index === arr.length - 1) {
+                        index = 0
+                    } else {
+                        index = index + 1
+                    }
+                    arr[index].style.left = 0 + "px"
+                    document.body.appendChild(arr[index])
+                }
+                i += 2
+            }, 1)
+
+
+        } else {
+            document.getElementById("current").parentElement.removeChild(arr[index])
+            if (index === 0) {
+                index = arr.length - 1
+            } else {
+                index = index - 1
+            }
+            arr[index].style.left = document.body.clientWidth + "px"
+            document.body.appendChild(arr[index])
+
+            let i = document.body.clientWidth
+
+            let interval = setInterval(function () {
+                arr[index].style.left = i + "px"
+                if(i < 5) {
+                    clearInterval(interval)
+                }
+                i -= 2
+            }, 1)
+
+        }
+    }
+
+    function shiftRight(div, onComplete) {
+        anime({
+            targets: div,
+            left: document.body.clientWidth + "px",
+            easing: 'linear',
+            duration: 1000,
+            complete: onComplete
+        })
+    }
+
+    function shiftLeft(div, onComplete) {
+        anime({
+            targets: div,
+            left: 5 + "px",
+            easing: 'linear',
+            duration: 1000,
+            complete: onComplete
+        })
+    }
+</script>
+</html>

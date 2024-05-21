@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var phoneNum = prompt("Insert phone number")
+    var part1 = phoneNum.slice(0, 3)
+    var part2 = phoneNum.slice(3, 6)
+    var part3 = phoneNum.slice(6, 9)
+
+    var message
+
+    if (part1 === "070" || part1 === "071" || part1 === "072")
+        message = "T-mobile"
+    else if(part1 === "075" || part1 === "076")
+        message = "One"
+    else if (part1 === "077" || part1 === "078")
+        message = "Vip"
+    else
+        message = ""
+
+    console.log(part1 + "/" + part2 + "-" + part3 + " - " + message)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+</head>
+<body>
+
+</body>
+
+<script>
+    data = '[{"size":50,"color":"red"},{"size":40,"color":"green"},{"size":20,"color":"blue"},{"size":35,"color":"yellow"},{"size":25,"color":"orange"}]';
+    data = JSON.parse(data);
+
+    for (let i = 0; i < data.length; i++) {
+        add_element(data[i])
+    }
+
+    function add_element(element_data) {
+        let elem = document.createElement('div')
+        elem.style.background = element_data.color
+        elem.style.height = element_data.size + "px"
+        elem.style.width = element_data.size + "px"
+        elem.style.position = "absolute"
+        elem.style.top = Math.random() * 300 + "px"
+        elem.style.left = Math.random() * 300 + "px"
+
+        elem.onclick = click_element
+
+        document.body.appendChild(elem)
+    }
+
+    function click_element() {
+        let element = this
+
+        let xAxis = [50, -50, -50, 50]
+        let yAxis = [-50, 50, -50, 50]
+        for (let i = 0; i < 4; i++) {
+            let cloned = element.cloneNode(true)
+            cloned.onclick = click_element
+
+            document.body.appendChild(cloned)
+
+            anime({
+                targets: cloned,
+                top: parseInt(element.style.top) + xAxis[i],
+                left: parseInt(element.style.left) + yAxis[i],
+                loop: false,
+                easing: 'linear',
+            });
+
+        }
+
+        document.body.removeChild(element)
+    }
+</script>
+</html>

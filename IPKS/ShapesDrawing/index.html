@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>Colors</p><input id="colors"></input>
+<p>Delimiter</p><input id="delimiter"></input>
+<br/><br/>
+<input type="button" value="Draw" onclick="draw()"></input>
+<div id="ploter"></div>
+
+</body>
+<script>
+
+    function draw() {
+        let colors = document.getElementById("colors").value
+        let del = document.getElementById("delimiter").value
+
+        let arr = colors.split(del)
+
+        for (let i = 0;i < arr.length;i++) {
+            let square = document.createElement("div")
+            square.style.backgroundColor = arr[i]
+            square.style.display = "inline-block"
+            square.style.width = "50px"
+            square.style.height = "50px"
+            square.onclick = remove
+            document.getElementById("ploter").appendChild(square)
+        }
+    }
+
+    function remove(event) {
+        let target = event.target
+        let colors = document.getElementById("colors").value
+
+        document.getElementById("colors").value =
+            colors.replace(target.style.backgroundColor, "*")
+                .replace("*, ", "")
+                .replace(",*", "")
+                .replace(", *", "")
+                .replace("*", "")
+        console.log(colors)
+        target.parentElement.removeChild(target)
+    }
+
+</script>
+</html>

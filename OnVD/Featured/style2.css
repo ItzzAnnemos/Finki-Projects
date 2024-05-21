@@ -1,0 +1,385 @@
+body {
+    margin: auto;
+}
+
+header {
+    width: 1400px;
+    margin: auto;
+}
+
+#header-wrapper {
+    background: url("header-bg.png");
+}
+
+.grid-layout .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobileUI-site-nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.mobileUI-site-name {
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+}
+
+#banner {
+    width: 1400px;
+    margin: auto;
+}
+
+#banner .row .u{
+    display: flex;
+    align-items: center;
+}
+
+#featured-wrapper {
+    background: url("featured-bg.png");
+}
+
+#featured-wrapper .row {
+    width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+    color: white;
+}
+
+#featured-wrapper .row .u:first-of-type p{
+    background: url("featured-icon01.png") no-repeat;
+    height: 68px;
+    padding-left: 120px;
+    font-size: large;
+    color: gray;
+}
+
+#featured-wrapper .row .u:nth-of-type(2) p{
+    background: url("featured-icon02.png") no-repeat;
+    height: 68px;
+    padding-left: 120px;
+    font-size: large;
+    color: gray;
+}
+
+#featured-wrapper .row .u:last-of-type p{
+    background: url("featured-icon03.png") no-repeat;
+    height: 68px;
+    padding-left: 120px;
+    font-size: large;
+    color: gray;
+}
+
+#featured-wrapper .row .u section{
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    padding: 40px 0 60px 0;
+}
+
+#wrapper {
+    background: url("main-bg.png");
+    color: #CFCFCF;
+}
+
+#page {
+    width: 1400px;
+    margin: auto;
+}
+
+#content {
+    display: inline-block;
+    width: 140%;
+    margin-top: 20px;
+}
+
+#content a {
+    color: #909090;
+}
+
+#content p {
+    color: #686868;
+}
+
+#content section {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+#content > section:nth-child(1) {
+    border-bottom: 0.5px solid lightgray;
+}
+
+.image-style1 {
+    display: block;
+    background: url("pic02.jpg") no-repeat;
+    background-size: 100%;
+    height: 200px;
+    padding-top: 70px;
+}
+
+#two-column .row {
+    align-items: flex-start;
+    gap: 2%;
+}
+
+.style3 {
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    list-style: none;
+    padding-left: 0;
+}
+
+.style3 li:first-of-type {
+    border-bottom: 0.5px solid lightgray;
+}
+
+.style4 {
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+    list-style: none;
+
+}
+
+#two-column .style4 li:first-of-type,#two-column .style4 li:nth-of-type(2) {
+    border-bottom: 0.5px solid lightgray;
+}
+
+#sidebar {
+    width: 60%;
+    margin-top: -50px;
+    margin-left: 2%;
+    float: right;
+}
+
+#sidebar .style4 {
+    padding-left: 15px;
+    list-style: url("list-bullet.png");
+    line-height: 50px;
+}
+
+#sidebar .row {
+    justify-content: center;
+    gap:10%;
+}
+
+.style4 a{
+    color: #686868;
+    text-decoration: none;
+}
+
+.style4 li {
+    border-top: 0.5px solid lightgray;
+}
+
+.style4 .first {
+    border: none;
+}
+
+#box2 {
+    padding: 5%;
+}
+
+.style2 {
+    list-style: none;
+    padding-left: 0;
+}
+
+.style2 li:first-of-type{
+    background: url("pics07.jpg") no-repeat;
+    height: 80px;
+    padding: 0 5px 25px 100px;
+}
+
+.style2 li:nth-of-type(2){
+    background: url("pics08.jpg") no-repeat;
+    height: 80px;
+    padding:0 5px 25px 100px;
+    border-bottom: 0.5px solid lightgray;
+}
+
+.style2 li:nth-of-type(3){
+    background: url("pics09.jpg") no-repeat;
+    height: 80px;
+    border-bottom: 0.5px solid lightgray;
+    padding: 0 5px 25px 100px;
+}
+
+.style2 li:last-of-type {
+    background: url("pics10.jpg") no-repeat;
+    height: 80px;
+    padding-left: 100px;
+}
+
+.style2 a {
+    text-decoration: none;
+    color: #909090;
+}
+
+#copyright {
+    background: url("main-bg.png");
+}
+
+#copyright .row .u section p {
+    color: #686868;
+}
+
+#copyright .row .u section a {
+    color: #909090;
+}
+
+#copyright .row {
+    border-top: 1px solid #909090;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#box2 .button-style1
+{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #2b8fc4;
+    border-radius: 5px;
+    padding: 16px;
+    float: left;
+    margin-right: 5px;
+}
+
+#content .button-style1 {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #2b8fc4;
+    border-radius: 5px;
+    padding: 13px;
+    margin-top: 15px;
+    float: left;
+}
+
+.date a
+{
+    color: white!important;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #2b8fc4;
+    border-radius: 5px;
+    padding: 6px;
+    float: left;
+    margin-right: 5px;
+}
+
+.heading-title
+{
+    text-align: center;
+    color: lightgray;
+    font-weight: bold;
+}
+
+#two-column .u section h2
+{
+    font-size: 28px;
+}
+
+#content section:first-of-type h2
+{
+    font-size: 35px;
+    font-weight: lighter;
+    color: white;
+}
+
+#featured-wrapper .u p
+{
+    color: gray;
+    width: 220px;
+    padding-left: 100px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+#featured-wrapper .u h2
+{
+    color: white;
+    font-weight: lighter;
+}
+
+#header-wrapper .u section a
+{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #2b8fc4;
+    border-radius: 5px;
+    padding: 13px;
+}
+
+#header-wrapper .u section h2
+{
+    text-transform: uppercase;
+    color: black;
+}
+
+#header-wrapper .u section p
+{
+    color: gray;
+}
+
+#header-wrapper .current_page_item a
+{
+    color: white!important;
+}
+
+#header-wrapper .current_page_item
+{
+    background-color: black;
+}
+
+#menu ul li a
+{
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+}
+
+#menu ul li
+{
+    list-style-type: none;
+    height: 30px;
+    display: inline-block;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+#logo h1 a
+{
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+}
+
+#featured-wrapper .u section a
+{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #2b8fc4;
+    border-radius: 5px;
+    padding: 13px;
+    margin-top: 40px;
+    margin-left: 115px;
+    width: 95px;
+}

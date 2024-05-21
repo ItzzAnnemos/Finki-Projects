@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    span {
+        display: inline-block;
+        width: 200px;
+        margin: 5px 0;
+    }
+
+    div:first-child {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+    }
+
+    div:last-of-type {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5rem;
+    }
+
+    table {
+        width: 350px;
+        border-collapse: collapse;
+    }
+
+    table th, table td {
+        border: 2px solid black;
+    }
+
+    select {
+        margin: 5px 0 10px 0;
+    }
+
+</style>
+<body>
+<div>
+    <span>Item id:</span> <input id="id" type="text">
+    <span>Item desc:</span> <input id="desc" type="text">
+    <span>Item price:</span> <input id="price" type="text">
+    <span>Item type:</span>
+    <select id="type">
+        <option>used</option>
+        <option>un-used</option>
+    </select>
+    <button onclick="add_item()">ADD</button>
+    <p>Active items: <span id="active">0</span></p>
+</div>
+<div>
+    <table id="used">
+        <tr>
+            <th>Id</th>
+            <th>Desc</th>
+            <th>Price</th>
+            <th>
+                <button>Sell</button>
+            </th>
+        </tr>
+    </table>
+
+    <table id="un-used">
+        <tr>
+            <th>Id</th>
+            <th>Desc</th>
+            <th>Price</th>
+            <th>
+                <button>Sell</button>
+            </th>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var counter = 0
+
+    function add_item() {
+        var id = document.getElementById("id").value
+        var desc = document.getElementById("desc").value
+        var price = document.getElementById("price").value
+        var type = document.getElementById("type")
+        var selectedType = type.options[type.selectedIndex]
+
+        if (id && desc && price) {
+            var table = document.getElementById(selectedType.value)
+            table.innerHTML += "<tr><td>" + id + "</td><td>" + desc + "</td><td>" + price + "</td><td><button id='sell' onclick='sell_item()' >Sell</button></td></tr>"
+            counter++
+            document.getElementById("active").innerText = counter
+        } else {
+            alert("Fill all the inputs")
+        }
+    }
+
+    function sell_item() {
+        var row = document.getElementById("sell").parentElement.parentElement
+        row.style.background = "yellow"
+        var button = document.getElementById("sell")
+        button.parentElement.firstChild.remove()
+        counter--
+        document.getElementById("active").innerText = counter
+    }
+</script>
+
+</body>
+</html>

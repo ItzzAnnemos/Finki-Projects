@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+</style>
+<body>
+<div>
+  <div><input type="number"> <button id="delete" onclick="delete_input(this.parentNode)">Izbrisi</button></div>
+  <div id="input-area"></div>
+  <button id="add" onclick="add_input()">Dodadi</button> <br>
+  <button id="calc" onclick="calculate()">Presmetaj</button>
+  <p>Prosek:<span id="avg"></span></p>
+  <p>Maksimum:<span id="max"></span></p>
+  <p>Minimum:<span id="min"></span></p>
+</div>
+
+<script>
+  function add_input() {
+    var container = document.getElementById("input-area")
+
+    var div_for_input = document.createElement('div')
+
+    var new_input = document.createElement('input')
+    new_input.type = 'number'
+
+    var new_button = document.createElement('button')
+    new_button.innerHTML = 'Izbrisi'
+    new_button.onclick = function () {
+              delete_input(div_for_input)
+            }
+
+    div_for_input.appendChild(new_input)
+    div_for_input.appendChild(new_button)
+
+    container.appendChild(div_for_input)
+  }
+
+  function delete_input(div) {
+    div.remove();
+  }
+
+  function calculate() {
+    var sum = 0
+    var counter = 0
+    var min = 999999
+    var max = 0
+    var getFirst = document.getElementsByTagName('input').item(0)
+    getFirst = parseInt(getFirst.value)
+    sum += getFirst
+    if (getFirst > max) {
+      max = getFirst
+      counter = 1
+    }
+    if (getFirst < min) {
+      min = getFirst
+      counter = 1
+    }
+    for (var i = 1;i < document.getElementsByTagName('input').length;i++) {
+      let tmp = document.getElementsByTagName('input').item(i)
+      tmp = parseInt(tmp.value)
+      sum += tmp
+      counter++
+      if (tmp > max) {
+        max = tmp
+      }
+      if (tmp < min) {
+        min = tmp
+      }
+    }
+
+    var average = sum / counter
+
+    var avg = document.getElementById("avg")
+    avg.innerHTML = average
+
+    var maxSpan = document.getElementById("max")
+    maxSpan.innerText = max
+
+    var minSpan = document.getElementById("min")
+    minSpan.innerText = min
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+        span {
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+        }
+        input {
+            margin: 5px 3px;
+        }
+        select {
+            margin: 5px 3px;
+            width: 180px;
+        }
+        button {
+            margin-left: 200px;
+            margin-bottom: 5px;
+        }
+        table {
+            border: 1px solid black;
+        }
+        table th, table td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Форма за внесување оцени</h1>
+    <span>Име: </span><input id="name" type="text"> <br>
+    <span>Презиме: </span><input id="surname" type="text"> <br>
+    <span>Индекс: </span><input id="index" type="text"> <br>
+    <span>Предмет: </span><input id="subject" type="text"> <br>
+    <span>Оцена: </span><select id="grade">
+        <option>5 (пет)</option>
+        <option>6 (шест)</option>
+        <option>7 (седум)</option>
+        <option>8 (осум)</option>
+        <option>9 (девет)</option>
+        <option>10 (десет)</option>
+    </select> <br>
+    <button onclick="add()">Внеси</button>
+</div>
+
+<table id="table">
+    <tr>
+        <th>Име</th>
+        <th>Презиме</th>
+        <th>Индекс</th>
+        <th>Предмет</th>
+        <th>Оцена</th>
+    </tr>
+</table>
+
+</body>
+
+<script>
+    function add() {
+        let name = document.getElementById("name").value
+        let surname = document.getElementById("surname").value
+        let index = document.getElementById("index").value
+        let subject = document.getElementById("subject").value
+        let grade = document.getElementById("grade").selectedIndex
+
+        if (grade === 0) {
+            grade = "5 (пет)"
+        } else if (grade === 1) {
+            grade = "6 (шест)"
+        } else if (grade === 2) {
+            grade = "7 (седум)"
+        } else if (grade === 3) {
+            grade = "8 (осум)"
+        } else if (grade === 4) {
+            grade = "9 (девет)"
+        } else {
+            grade = "10 (десет)"
+        }
+
+        let table = document.getElementById("table")
+        table.innerHTML += "<tr><td>" + name + "</td><td>" + surname + "</td><td>" + index + "</td><td>" + subject + "</td><td>" + grade + "</td></tr>"
+
+        document.getElementById("name").value = ""
+        document.getElementById("surname").value = ""
+        document.getElementById("index").value = ""
+        document.getElementById("subject").value = ""
+        document.getElementById("grade").selectedIndex = 0
+    }
+</script>
+</html>

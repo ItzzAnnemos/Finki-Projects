@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container {
+            display: flex;
+            gap: 2rem;
+        }
+
+        #avg {
+            display: inline;
+        }
+
+        span {
+            display: inline-block;
+            width: 110px;
+            margin: 3% 0;
+        }
+
+        fieldset {
+            display: inline-block;
+            border: none;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div>
+        <h1>Details</h1>
+        <div>
+            <span>Name</span> <input id="name" type="text"> <br>
+            <span>Index</span> <input id="index" type="text"> <br>
+            <span>Phone</span> <input id="phone" type="text"> <br>
+            <span>Grade</span>
+            <fieldset><input name="grade" id="5" type="radio" checked> 5 <input name="grade" id="6" type="radio"> 6
+                <input name="grade" id="7" type="radio"> 7 <input name="grade" id="8" type="radio"> 8
+                <input name="grade" id="9" type="radio"> 9 <input name="grade" id="10" type="radio"> 10
+            </fieldset>
+            <br>
+            <span>Session</span>
+            <select id="session">
+                <option>January</option>
+                <option>June</option>
+                <option>September</option>
+            </select> <br>
+            <button id="import" onclick="import_student()">Import student</button>
+        </div>
+    </div>
+    <div>
+        <h1>Revert History</h1>
+        <ul id="revert_history"></ul>
+    </div>
+</div>
+<h1>Students (average grade : <span id="avg">0.0</span>)</h1>
+
+<table id="students">
+    <tr>
+        <th>Name</th>
+        <th>Index</th>
+        <th>Phone</th>
+        <th>Grade</th>
+        <th>Session</th>
+        <th>Actions</th>
+    </tr>
+</table>
+
+<script>
+    function import_student() {
+        var name = document.getElementById("name")
+        name = name.value
+        var index = document.getElementById("index")
+        index = index.value
+        var phone = document.getElementById("phone")
+        phone = phone.value
+        var grades = document.getElementsByName("grade")
+        var grade
+
+        for (var i = 0; i < grades.length; i++) {
+            if (grades.item(i).checked) {
+                grade = i + 5;
+            }
+        }
+
+        var session = document.getElementById("session")
+        session = session.selectedIndex
+        if (session === 0) {
+            session = "January"
+        } else if (session === 1) {
+            session = "June"
+        } else {
+            session = "September"
+        }
+
+        if (name && index && phone) {
+            phone = phone.substring(0, 3) + "/" + phone.substring(3, 6) + "-" + phone.substring(6)
+            var table = document.getElementById("students")
+
+            index = index.toString()
+            table.innerHTML += "<tr><td>" + name + "</td><td>" + index + "</td><td>" + phone + "</td><td class='grades'>" + grade + "</td><td>" + session + "</td><td><button onclick='confirm_student(this)' id='confirm'>Confirm</button><button id='revert' onclick='revert_student(" + index + "," + grade + " , this)'>Revert</button></td> </tr>"
+
+            avg_grade()
+        } else {
+            alert("Empty inputs")
+        }
+    }
+
+    function confirm_student(button) {
+        button.disabled = true
+        button = button.nextSibling
+        button.disabled = true
+        var row = button.parentElement.parentElement
+        row.style.background = "#79DA58FF"
+    }
+
+    function revert_student(index, grade, button) {
+        var list = document.getElementById("revert_history")
+
+        list.innerHTML += "<li>" + index + " - Grade " + grade + "</li>"
+
+        var row = button.parentElement.parentElement
+        row.remove()
+
+        avg_grade()
+    }
+
+    function avg_grade() {
+        var grades = document.getElementsByClassName("grades")
+        var sum = 0
+        var counter = 0
+
+        for (var i = 0;i < grades.length;i++) {
+            sum += parseInt(grades[i].innerHTML)
+            counter++;
+        }
+
+        var avg = document.getElementById("avg")
+        avg.innerHTML = (parseFloat(sum) / counter).toFixed(1)
+    }
+</script>
+
+</body>
+</html>

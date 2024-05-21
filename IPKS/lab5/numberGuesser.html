@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script>
+    </script>
+</head>
+<body>
+<div>
+    <div style="text-align:right; float:left">
+        <label id="obid">Обиди 0</label>
+        <p>Погодок: <input id="guess" style="width:150px"/></p>
+        <button onclick="guess()">Погоди</button>
+        <button onclick="restart()">Од почеток</button>
+    </div>
+</div>
+<br/>
+<div id="prikaz" style="clear: both">
+</div>
+</body>
+
+<script>
+    let randomNum = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000
+
+    let count = 0
+
+    function restart() {
+        randomNum = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000
+    }
+
+    function guess() {
+        let num = document.getElementById("guess").value
+        let rez = document.getElementById("prikaz")
+        let obid = document.getElementById("obid")
+
+        let guessedDigits = 0
+        let inRightPosition = 0
+
+        let tmp = randomNum
+        let digit = -1
+
+        if (parseInt(num) === randomNum) {
+            rez.innerText += "ПОГОДОК!!!\n"
+            return
+        }
+
+        for (let i = 3; i >= 0; i--) {
+            digit = tmp % 10
+
+            if (num.includes(digit.toString())) {
+                guessedDigits++
+            }
+
+            if (num.charAt(i) === digit.toString()) {
+                inRightPosition++
+            }
+
+            tmp = Math.floor(tmp / 10)
+        }
+
+        count++
+
+        if (count < 10) {
+            rez.innerText += "Има " + guessedDigits + ", на место " + inRightPosition + " " + num + "\n"
+            obid.innerText = "Обиди " + count
+        } else {
+            rez.innerText += "Не успеавте да погодите од 10 обиди. Бројот е " + randomNum + "\n"
+            restart();
+        }
+    }
+</script>
+</html>

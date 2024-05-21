@@ -1,0 +1,231 @@
+p
+{
+    font-family: "abel","Arial",serif;
+}
+h1,h2
+{
+    font-family: satisfy,Arial,serif;
+}
+li
+{
+    font-family: Oswald,"Arial",serif;
+}
+
+body {
+    margin: 0;
+}
+
+#header {
+    width: 1080px;
+    margin: auto;
+    background: url("images/img05.png");
+    font-family: Oswald, serif;
+}
+
+#header-nav {
+    font-family: Oswald, serif;
+    height: 157px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo h1 a{
+    text-transform: lowercase;
+    font-size: xx-large;
+    text-decoration: none;
+    color: #5C5539;
+    font-style: italic;
+}
+
+#navigation a:hover{
+    color: #67563b;
+}
+
+#navigation ul {
+    font-family: Oswald, serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    gap: 40px;
+}
+
+#navigation a {
+    text-transform: uppercase;
+    color: #A98C49;
+    font-family: Oswald,serif;
+    text-decoration: none;
+}
+
+#navigation li {
+    font-size: large;
+}
+
+#footer-wrapper {
+    margin-top: 25px;
+}
+
+#footer-content {
+    width: 1080px;
+    margin:auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 7%;
+}
+
+#footer-content h2 {
+    white-space: nowrap;
+}
+
+#fbox1, #fbox2, #fbox3 {
+    width: 25%;
+}
+
+#fbox1 p:nth-of-type(3), #fbox1 p:nth-of-type(2) {
+    display: none;
+}
+
+#fbox1 h2, #fbox2 h2, #fbox3 h2 {
+    color: #A98C49;
+}
+
+#fbox1 span, #fbox2 span, #fbox3 span {
+    color: black;
+}
+
+.button-style {
+    text-decoration: none;
+    width: 140px;
+    background: url("images/img01.png");
+    text-align: center;
+    align-items: center;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.button-style a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #5C5539!important;
+}
+
+.style2 {
+    list-style: none;
+    padding-left: 0;
+}
+
+.style2 li {
+    line-height: 35px;
+}
+
+.style2 a {
+    color: #A98C49;
+}
+
+.style2 a:hover {
+    text-decoration: none;
+}
+
+#fbox2 p:first-of-type {
+    background: url("images/img05.jpg") no-repeat;
+    width: 320px;
+    height: 150px;
+}
+
+#fbox3 h1 {
+    display: none;
+}
+
+.style1 li:first-of-type {
+    display: none;
+}
+
+.style1 li:nth-of-type(3), .style1 li:nth-of-type(4) {
+    border-top: 1px dashed #A98C49;
+}
+
+.style1 {
+    list-style: none;
+    padding-left: 0;
+}
+
+.style1 a {
+    color: black;
+    text-decoration: none;
+}
+
+#page-wrapper {
+    margin-top: 50px;
+}
+
+#page {
+    width: 1080px;
+    background-color: #F1F2E9;
+    margin: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-bottom: 60px;
+}
+
+#content {
+    width: 50%;
+    margin-right: 110px;
+}
+
+#content p > a {
+    color: #A98C49;
+}
+
+#sidebar {
+    width: 30%;
+    margin-left: 40px;
+}
+
+.style3 {
+    list-style: none;
+    padding-left: 0;
+}
+
+.style3 li:hover{
+    border: 3px dashed #A98C49;
+}
+
+.style3 li:first-of-type {
+    background: url("images/img02.jpg") no-repeat;
+    padding-left: 100px;
+}
+.style3 li:nth-of-type(2) {
+    background: url("images/img03.jpg") no-repeat;
+    padding-left: 100px;
+}
+.style3 li:last-of-type {
+    background: url("images/img04.jpg") no-repeat;
+    padding-left: 100px;
+}
+
+#content div p:only-child {
+    display: none;
+}
+
+#footer {
+    width: 1080px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("images/img01.png");
+    height: 80px;
+}
+
+#footer p {
+    display: inline;
+}
+
+#footer a {
+    color: #5C5539;
+}

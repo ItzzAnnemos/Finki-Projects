@@ -1,0 +1,116 @@
+/*-------------------------------------------------------------------------
+
+br.Indeks, Ime i Prezime  
+
+----------------------------------------------------------------------------*/
+#pageHeader h1{
+    display:none;
+}
+
+#pageHeader {
+    background: url("top.gif") no-repeat;
+    width: 605px;
+    height: 332px;
+    margin: auto;
+}
+
+#container {
+    background: url("containerbackground.gif");
+    width: 663px;
+    margin: auto;
+}
+
+#quickSummary {
+    background: url("summary.gif") no-repeat;
+    width: 192px;
+    display: inline-block;
+    float: right;
+    padding-top: 30px;
+    margin-right: 36px;
+}
+#quickSummary p {
+    padding: 8px;
+}
+
+#preamble h3 , #supportingText h3, #participation h3{
+    display: none;
+}
+
+#preamble, #supportingText, #participation {
+    display: inline-block;
+    background: url("title1.gif") no-repeat;
+    width: 389px;
+    padding-top: 30px;
+    margin-left: 37px;
+}
+
+#supportingText {
+    background: url("title2.gif") no-repeat;
+}
+
+#participation {
+    background: url("title3.gif") no-repeat;
+    margin-left: 0;
+}
+
+#participation a {
+    color: red;
+    text-decoration: none;
+    line-height: 25px;
+}
+
+#participation ul {
+    padding-left: 70px;
+}
+
+#preamble p , #supportingText p, #participation p{
+    padding: 20px;
+}
+
+#linkList {
+    display: inline-block;
+    width: 192px;
+    float: right;
+    margin-top: -210px;
+    padding-right: 36px;
+}
+
+#lselect h3, #lresources h3{
+    display: none;
+}
+
+#lselect , #lresources{
+    background: url("designs.gif") no-repeat;
+    width: 192px;
+    padding-top: 37px;
+}
+
+#lresources {
+    background: url("resources.gif") no-repeat;
+}
+
+#lselect ul {
+    list-style: url("paperfolded.gif");
+}
+
+#lselect a {
+    line-height: 23px;
+}
+
+#lresources ul {
+    list-style: url("paper.gif") no-repeat;
+    color: red;
+}
+#lresources a {
+    color: red;
+    text-decoration: none;
+    line-height: 23px;
+}
+
+#extraDiv1::after {
+    content:"animation";
+    font-weight: bold;
+    position: absolute;
+    margin-left: 1180px;
+    margin-top: -1635px;
+}

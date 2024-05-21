@@ -1,0 +1,290 @@
+/* 201084 Andrej Todorovski*/
+/* ID_NO, Name and Surname */
+
+
+/* Your code goes here */
+p
+{
+    font-family: "abel","Arial",serif;
+}
+h1,h2
+{
+    font-family: satisfy,Arial,serif;
+}
+li
+{
+    font-family: Oswald,"Arial",serif;
+}
+body
+{
+    width: 1080px;
+    margin: auto;
+}
+#header
+{
+    width: 1080px;
+    background: url("../images/img05.png") repeat 0 -37px;
+    height: 120px;
+    margin-top: -22px;
+}
+#logo
+{
+    float: left;
+    display: inline-block;
+}
+#logo h1
+{
+    margin-left: 30px;
+    text-transform: lowercase;
+    font-style: italic;
+    margin-top: 30px;
+}
+#logo h1 a
+{
+    text-decoration: none;
+    color: #67563b;
+}
+#navigation
+{
+    float: right;
+    display: inline-block;
+}
+#navigation ul
+{
+    margin-top:40px;
+    margin-right: 40px;
+}
+#navigation ul li
+{
+    display: inline-block;
+    padding-right: 20px;
+}
+#navigation ul li a
+{
+    text-decoration: none;
+    text-transform: uppercase;
+    word-spacing: 0;
+    letter-spacing: -1px;
+    color: #c48d3f;
+}
+#navigation ul li:first-child a
+{
+    font-weight: bold;
+}
+#fbox1,#fbox2,#fbox3
+{
+    margin-top: 20px;
+    width: 320px;
+    display:inline-block;
+    float: left;
+    margin-left: 30px;
+}
+#fbox1 h2,#fbox2 h2, #fbox3 h2
+{
+    font-size: 20px;
+    color: #c48d3f;
+    font-weight: lighter;
+    font-style: italic;
+    padding-bottom: 10px;
+}
+#fbox1 p:first-of-type
+{
+    margin-bottom:40px;
+    color: gray;
+}
+#fbox1 h2 span,#fbox2 h2 span, #fbox3 h2 span
+{
+    color: black;
+}
+.style2
+{
+    margin-top: -40px;
+}
+.style2 li,.style1 li
+{
+    list-style-type: none;
+    margin-left: -40px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px gray dashed;
+}
+#fbox1 p:nth-of-type(3)
+{
+    display: none;
+}
+.style2 li a
+{
+    color: gray;
+}
+.style1 li a
+{
+    color: gray;
+    text-decoration: none;
+}
+#fbox3 h1
+{
+    display: none;
+}
+.button-style
+{
+    background: url("../images/img01.png");
+    width: 110px;
+    height: 25px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    padding: 10px 12px 1px 18px;
+}
+.button-style a
+{
+    text-decoration: none;
+    font-size: 15px;
+    color: #67563b;
+}
+#fbox2 h2
+{
+    padding-bottom: 50px;
+    background: url("../images/img05.jpg") no-repeat 0px 50px;
+    width: 320px;
+    height: 150px;
+}
+#fbox2 p
+{
+    color: gray;
+}
+
+.style1 li:first-child
+{
+    display: none;
+}
+#footer-wrapper:after
+{
+
+    content: "";
+    display: table;
+    clear: both;
+}
+#sidebar
+{
+    float: right;
+    display: inline-block;
+    width: 330px;
+}
+#content
+{
+    float: right;
+    display: inline-block;
+    width: 650px;
+    margin-right: 50px;
+}
+#page-wrapper {
+    padding-top: 30px;
+    margin-top: 30px;
+    height: 450px;
+    background-color: #f1f2e9;
+
+}
+#content div:first-of-type p
+{
+    display: none;
+}
+#page-wrapper h2
+{
+    color: black;
+    font-style: italic;
+}
+#page-wrapper p
+{
+    color: gray;
+}
+#footer
+{
+    height: 100px;
+    margin-top: -18px;
+    background: url("../images/img01.png") repeat;
+}
+#footer p:first-child
+{
+    display: none;
+}
+#footer p
+{
+    display: inline-block;
+    padding-top: 30px;
+    padding-left: 250px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #67563b;
+}
+#footer p a
+{
+    text-decoration: none;
+    border-bottom: 2px solid #67563b;
+    color: #67563b;
+}
+.style3 li:first-of-type
+{
+    background: url("../images/img02.jpg") no-repeat 0px 0px;
+    list-style-type: none;
+    margin-left: -40px;
+    padding-left: 90px;
+    padding-bottom: 20px;
+}
+.style3 li:nth-of-type(2)
+{
+    background: url("../images/img03.jpg") no-repeat 0px 0px;
+    list-style-type: none;
+    margin-left: -40px;
+    padding-left: 90px;
+    padding-bottom: 20px;
+}
+.style3 li:nth-of-type(3)
+{
+    background: url("../images/img04.jpg") no-repeat 0px 0px;
+    list-style-type: none;
+    margin-left: -40px;
+    padding-left: 90px;
+    padding-bottom: 20px;
+}
+.posted
+{
+    font-size: 12px;
+
+}
+.style1 li:last-of-type, .style2 li:last-of-type
+{
+    border: none;
+}
+#content div:nth-of-type(2) p:nth-of-type(1) a:first-of-type
+{
+    visibility: hidden;
+}
+#content div:nth-of-type(2) p:nth-of-type(1) a:first-of-type:after
+{
+    content: 'FCT';
+    display: inline-block;
+    visibility: visible;
+    margin-left: -38px;
+    text-decoration: underline;
+    color: gray;
+}
+#content div:nth-of-type(2) p:nth-of-type(1)
+{
+    font-size: 14px;
+}
+#content div:nth-of-type(2) p:nth-of-type(1) a:nth-of-type(3)
+{
+    visibility: hidden;
+}
+#content div:nth-of-type(2) p:nth-of-type(1) a:nth-of-type(3):after
+{
+    content: 'Creative Common Atributions 3.0';
+    display: inline-block;
+    visibility: visible;
+    margin-left: -35px;
+    text-decoration: underline;
+    color: gray;
+}
+#content div:nth-of-type(2) p:nth-of-type(1) a:nth-of-type(2)
+{
+    color: gray;
+}

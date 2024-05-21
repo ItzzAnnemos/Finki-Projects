@@ -1,0 +1,424 @@
+/* Andrej Todorovski 201084 */
+
+body
+{
+    background: url("../images/bg-body.gif");
+}
+#page
+{
+    background: url("../images/bg-page.gif");
+    width: 960px;
+    margin: auto;
+    height: 1200px;
+}
+#header
+{
+    height: 500px;
+}
+#navigation
+{
+    float: right;
+    height: 400px;
+    width:565px;
+    margin-top: -235px;
+    background: url("../images/lion-family.jpg") no-repeat -10px 40px;
+}
+#logo
+{
+    float: left;
+}
+#navigation li
+{
+    display: inline-block;
+    padding-right: 17px;
+}
+#navigation li a
+{
+    color: white;
+    text-decoration: none;
+}
+#header ul:first-of-type
+{
+    float: left;
+    width: 260px;
+    display: inline-block;
+    margin-top: 249px;
+    margin-left: -340px;
+    position: absolute;
+    border-top: 1px dotted dimgray;
+    border-bottom: 1px dotted dimgray;
+}
+#header ul:first-of-type li
+{
+    list-style-type: none;
+    width: 80px;
+    height: 60px;
+    float: left;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    border-right: 1px dotted dimgray;
+}
+#header ul:first-of-type li h2
+{
+    margin-top: -1px;
+    margin-bottom: -1px;
+}
+#header ul:first-of-type li h2 a
+{
+    text-decoration: none;
+    color: maroon;
+}
+#header ul:first-of-type li span
+{
+    color: maroon;
+}
+#header a:nth-of-type(2)
+{
+    position: absolute;
+    margin-top: 350px;
+    margin-left: -340px;
+    background: url("../images/interface.gif") no-repeat -8px -265px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+.jumbotron
+{
+    clear: both;
+}
+#header div:last-of-type
+{
+    clear: both;
+    padding-left: 50px;
+    padding-bottom: 9px;
+    height: 65px;
+    background: url("../images/interface.gif") no-repeat 20px -188px;
+}
+#header div:last-of-type h1
+{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 34px;
+    float: left;
+    margin-left: -10px;
+    margin-top: 18px;
+    color: #dfc185;
+}
+#header div:last-of-type p
+{
+    display: inline-block;
+    float: left;
+    margin-top: 30px;
+    margin-left: 30px;
+    color: white;
+}
+#header div:last-of-type p a
+{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+#content
+{
+    clear: both;
+    height: 800px;
+}
+#featured
+{
+    height: 192px;
+    padding-top: 1px;
+    background: url("../images/interface.gif") no-repeat 0px 0px;
+}
+#featured h2
+{
+    margin-left: 20px;
+    margin-bottom: -10px;
+}
+#featured ul li
+{
+    display: inline-block;
+    padding-right: 10px;
+}
+#featured ul li:nth-of-type(1)
+{
+    height: 98px;
+    padding-top: 100px;
+    width: 98px;
+    background: url("../images/penguin.jpg") no-repeat 0px 0px;
+}
+#featured ul li:nth-of-type(2)
+{
+    height: 98px;
+    padding-top: 100px;
+    width: 98px;
+    background: url("../images/elephant.jpg") no-repeat 0px 0px;
+}
+#featured ul li:nth-of-type(3)
+{
+    height: 98px;
+    padding-top: 100px;
+    width: 98px;
+    background: url("../images/owl.jpg") no-repeat 0px 0px;
+}
+#featured ul li:nth-of-type(4)
+{
+    height: 98px;
+    padding-top: 100px;
+    width: 98px;
+    background: url("../images/butterfly.jpg") no-repeat 0px 0px;
+}
+#featured ul li:nth-of-type(5)
+{
+    height: 98px;
+    padding-top: 100px;
+    width: 98px;
+    background: url("../images/turtle.jpg") no-repeat 0px 0px;
+}
+#featured ul li:nth-of-type(6)
+{
+    height: 98px;
+    padding-top: 100px;
+    width: 98px;
+    background: url("../images/snake.jpg") no-repeat 0px 0px;
+}
+#featured ul li:nth-of-type(7)
+{
+    height: 98px;
+    padding-top: 100px;
+    width: 98px;
+    background: url("../images/gorilla.jpg") no-repeat 0px 0px;
+}
+#featured ul li:nth-of-type(8)
+{
+    height: 98px;
+    padding-top: 100px;
+    width: 98px;
+    background: url("../images/button-view-gallery.jpg") no-repeat 0px 0px;
+}
+#featured ul li a
+{
+    color: black;
+    text-decoration: none;
+}
+.section1
+{
+    clear: both;
+    width: 270px;
+    display: inline-block;
+    float: left;
+    margin-left: -10px;
+    color: #875115;
+}
+.section2
+{
+    width: 479px;
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    color: #875115;
+}
+.section3
+{
+    width: 200px;
+    display: inline-block;
+    float: left;
+    color: #875115;
+}
+.section2 p ~ ul
+{
+    width: 208px;
+    height: 139px;
+    padding-left: 240px;
+    background: url("../images/dolphins.jpg") no-repeat 0px 0px;
+}
+.section2 p ~ ul li
+{
+    margin-top: -17px;
+    color: #875115;
+}
+.section2 p ~ ul li a
+{
+    text-decoration: none;
+    color: #875115;
+}
+#section1
+{
+    width: 235px;
+    float: left;
+    display: inline-block;
+    margin-left: -40px;
+}
+#section1 li
+{
+    list-style-type: none;
+}
+#section1 li:first-of-type h4
+{
+    position: absolute;
+    width: 135px;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: -2px;
+    margin-left: 5px;
+}
+#section1 li:first-of-type p
+{
+    position: absolute;
+    width: 130px;
+    display: inline-block;
+    margin-top: 37px;
+    margin-left: 4px;
+    font-size: 13px;
+}
+#section1 li:nth-of-type(2) h4
+{
+    position: absolute;
+    width: 135px;
+    display: inline-block;
+    margin-top: -2px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+#section1 li:nth-of-type(2) p
+{
+    position: absolute;
+    width: 130px;
+    display: inline-block;
+    margin-top: 37px;
+    margin-left: 4px;
+    font-size: 13px;
+}
+#section2
+{
+    width: 215px;
+    float: left;
+    margin-left: 45px;
+    display: inline-block;
+}
+#section2 li
+{
+    list-style-type: none;
+}
+#section2 h4
+{
+    margin-top: -1px;
+}
+#section2 p
+{
+    margin-top: -20px;
+}
+#section1 a,#section2 a
+{
+    text-decoration: none;
+    color: #875115;
+}
+.section3 a
+{
+    text-decoration: none;
+    color: #875115;
+}
+.section1 a
+{
+    text-decoration: none;
+    color: #875115;
+}
+.section1 h2
+{
+    margin-left: 35px;
+}
+.section3 a
+{
+    display: block;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+.section3 a:first-of-type
+{
+    background: url("../images/icons.gif") no-repeat 0px 0px;
+}
+.section3 a:nth-of-type(2)
+{
+    background: url("../images/icons.gif") no-repeat 0px -20px;
+}
+.section3 a:nth-of-type(3)
+{
+    background: url("../images/icons.gif") no-repeat 0px -42px;
+}
+.section3 form h2
+{
+    margin-top: -25px;
+}
+.section3 img
+{
+    margin-left: -6px;
+}
+.section1 h2,.section2 h2,.section3 h2
+{
+    color: maroon;
+}
+.section3 form h3
+{
+    color: maroon;
+}
+#footer
+{
+    margin-top: -200px;
+    clear: both;
+    background: url("../images/bg-footer.gif") repeat;
+    height: 217px;
+    padding-top: 30px;
+}
+#footer div div
+{
+    width: 160px;
+    display: inline-block;
+    margin-left: 40px;
+    float: left;
+    padding-left: 214px;
+    font-size: 14px;
+    height: 185px;
+    background: url("../images/animal-kingdom.jpg") no-repeat;
+}
+#footer div ul:first-of-type {
+    width: 150px;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+    display: inline-block;
+    padding-right: 20px;
+    float: left;
+}
+footer div ul:nth-of-type(2)
+{          
+    width: 180px;
+    display: inline-block;
+    float: left;
+    padding-right: 30px;
+}
+#footer a
+{
+    text-decoration: none;
+    color:#875115 ;
+}
+#footer div ul li
+{
+    list-style-type: none;
+}
+#footer div p:last-child {
+    position: absolute;
+    margin-top: 110px;
+    margin-left: 290px;
+}
+#navigation #link1 a:hover,#navigation #link2 a:hover,#navigation #link3 a:hover,#navigation #link4 a:hover,#navigation #link5 a:hover,#navigation #link6 a:hover,#navigation #link7 a:hover
+{
+    color: #875115!important;
+}
+#featured ul li:hover
+{
+    opacity: 50%;
+}
+/* Good Luck :) */

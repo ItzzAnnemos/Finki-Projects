@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var number = prompt("Enter 4-digit number!");
+    if (number.length !== 4) {
+        alert("Can't check the number you inserted")
+    } else {
+
+        var sum = 0
+        var tmp = number
+        while (tmp !== 0) {
+            sum += tmp % 10
+            tmp = Math.floor(tmp / 10)
+        }
+
+        if (number.charCodeAt(0) === number.charCodeAt(3) && number.charCodeAt(1) === number.charCodeAt(2)) {
+            if (number % sum === 0) {
+                alert("Number is a palindrome and is divisible with the sum of it's digits")
+            } else {
+                alert("Number is a palindrome and is not divisible with the sum of it's digits")
+            }
+        } else {
+            if (number % sum === 0) {
+                alert("Number is not a palindrome and is divisible with the sum of it's digits")
+            } else {
+                alert("Number is not a palindrome and is not divisible with the sum of it's digits")
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>

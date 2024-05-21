@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+  var longest = " ", tmp
+
+  for (var i = 1;i < 4;i++) {
+    var line = prompt("Type " + i + ". string")
+    tmp = line.split(" ")
+
+    for (var j = 0;j < tmp.length;j++){
+      if (tmp[j].length > longest.length)
+        longest = tmp[j]
+    }
+
+  }
+
+  alert("Longest word is " + longest)
+
+</script>
+
+</body>
+</html>

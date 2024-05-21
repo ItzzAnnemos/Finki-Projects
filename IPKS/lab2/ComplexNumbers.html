@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      input {
+        display: inline-block;
+        width: 50px;
+        margin: 5px 1px;
+      }
+    </style>
+</head>
+<body>
+  <div>
+    <input id="firstNum" type="text"><input id="firstNumI" type="text">i <br>
+    <input id="secondNum" type="text"><input id="secondNumI" type="text">i <br>
+    <button onclick="calculate()">Add</button> <br>
+    <input id="sum" type="text"><input id="sumI" type="text">
+  </div>
+</body>
+
+<script>
+  function calculate() {
+    let firstNum = document.getElementById("firstNum").value
+    firstNum = parseInt(firstNum)
+    let firstNumI = document.getElementById("firstNumI").value
+    firstNumI = parseInt(firstNumI)
+    let secondNum = document.getElementById("secondNum").value
+    secondNum = parseInt(secondNum)
+    let secondNumI = document.getElementById("secondNumI").value
+    secondNumI = parseInt(secondNumI)
+
+    let sum = document.getElementById("sum")
+    let sumI = document.getElementById("sumI")
+
+    sum.value = firstNum + secondNum
+    sumI.value = firstNumI + secondNumI
+  }
+</script>
+</html>

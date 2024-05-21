@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div style="display: flex; flex-direction: column;gap: 3rem; align-items: center; justify-content: center; margin-top: 5rem">
+    <label><input id="weight" type="text" placeholder="Insert weight in kg"></label>
+    <label><input id="height" type="text" placeholder="Insert height in cm"></label>
+    <button onclick="calculateBMI()">Calculate</button>
+</div>
+
+<script>
+    function calculateBMI(){
+        let kg = document.getElementById('weight').value
+        let cm = document.getElementById('height').value
+        let m = cm / 100.0;
+
+        let BMI = kg / (m * m)
+
+        alert("BMI is " + BMI)
+    }
+</script>
+
+</body>
+</html>
