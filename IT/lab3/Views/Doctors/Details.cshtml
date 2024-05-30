@@ -1,0 +1,61 @@
+﻿@model MVC_lab2.Models.Doctor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Doctor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <ul>
+        @foreach (var patient in Model.Patients)
+            {
+                <li>
+                    <a href="/Patients/Details/@patient.Id">@patient.Name</a>
+                </li>
+            }
+    </ul>
+</div>
+
+@if (Model.Hospital != null)
+{
+    <div>
+        <h3>Works at:</h3>
+        <h4><a href="/Hospitals/Details/@Model.Hospital.Id">@Model.Hospital.Name</a></h4>
+    </div>
+
+    <br />
+
+    @Html.ActionLink("Change Hospital", "InsertHospital", new { id = Model.Id })
+
+}
+else
+{
+    @Html.ActionLink("Insert Hospital", "InsertHospital", new { id = Model.Id })
+}
+
+<br />
+
+@Html.ActionLink("Assign Patient", "InsertPatient", new { id = Model.Id })
+
+<br />
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

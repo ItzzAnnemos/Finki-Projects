@@ -1,0 +1,18 @@
+﻿@model MVC_lab2.Models.DoctorPatient
+@{
+    ViewBag.Title = "InsertPatient";
+}
+
+<h2>Assign a patient to the doctor: @Model.Doctor.Name</h2>
+
+@using (Html.BeginForm("InsertDoctorPatient", "Doctors"))
+{
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.PatientId , new SelectList(Model.Patients, "Id", "Name"), new { @class = "form-control" })
+        @Html.HiddenFor(m => m.DoctorId)
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">Assign Patient To Doctor</button>
+    </div>
+}
