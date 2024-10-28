@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+</head>
+<body>
+<div id="num">Current number:</div>
+</body>
+
+<script>
+    data = '[{"id":1,"numbers":[80,72,49,1,34,81,36,2,13,9,54,93,29,18,52]},{"id":2,"numbers":[68,85,24,7,32,12,88,57,35,11,44,58,91,21,22]},{"id":3,"numbers":[16,5,75,64,28,70,50,55,40,77,23,48,98,67,73]}]';
+    data = JSON.parse(data);
+
+    let number
+
+    for (let i = 0;i < data.length;i++) {
+        create_table(data[i])
+    }
+
+    setInterval(update_random_num, 5000)
+
+    function create_table(table_data) {
+        let table = document.createElement('table')
+
+        let index = 0
+        for (let i = 0;i < 3;i++) {
+            let row = table.insertRow()
+            for (let j = 0;j < 5;j++) {
+                let cell = row.insertCell()
+                cell.style.border = "1px solid black"
+                cell.textContent = table_data["numbers"][index++]
+            }
+        }
+
+        table.style.border = "1px solid black"
+        table.style.marginBottom = "1em"
+        document.body.appendChild(table)
+    }
+
+    function available_numbers() {
+        let cells = document.getElementsByTagName("td")
+        for (let i = 0;i < cells.length;i++) {
+            if (parseInt(cells.item(i).textContent) === number) {
+                document.getElementsByTagName("td").item(i).onclick = paint_green
+            }
+        }
+    }
+
+    function paint_green(cell) {
+        cell.target.style.background = "lime"
+    }
+
+    function update_random_num() {
+        let random = Math.floor(Math.random() * 100)
+        number = random
+        document.getElementById("num").textContent = `Current number: ${random}`
+        available_numbers()
+    }
+</script>
+</html>

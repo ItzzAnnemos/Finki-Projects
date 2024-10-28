@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTakToe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Tik Tac Toe</h1>
+
+<div id="matrix">
+    <div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+    </div>
+    <div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+    </div>
+    <div>
+        <div class="field"></div>
+        <div class="field"></div>
+        <div class="field"></div>
+    </div>
+</div>
+
+<div id="popup" class="window">
+    <div class="popup-content">
+        <p id="result"></p>
+        <button id="playAgain">Play Again</button>
+    </div>
+</div>
+
+</body>
+
+<script>
+    let count = 0
+
+    let arr = document.getElementsByClassName("field")
+    for (const arrElement of arr) {
+        arrElement.onclick = click
+    }
+
+    function click(event) {
+        let tmp = event.target
+        if (tmp.name !== "x" && tmp.name !== "o") {
+            if (count % 2 === 0) {
+                tmp.style.background = "url('xo.png') -152px 7px no-repeat"
+                tmp.style.backgroundSize = "200%"
+                tmp.name = "x"
+                count++
+            } else {
+                tmp.style.background = "url('xo.png') 8px 2px no-repeat"
+                tmp.style.backgroundSize = "cover"
+                tmp.name = "o"
+                count++
+            }
+
+            if (count > 4) {
+                let rez = check()
+                if (rez !== undefined && rez != null) {
+                    showPopup(rez)
+                }
+            }
+        }
+    }
+
+    function showPopup(winner) {
+        let popup = document.getElementById("popup")
+        let result = document.getElementById("result")
+
+        result.textContent = `Congratulations! ${winner} wins!`
+
+        popup.style.display = "block"
+
+        document.getElementById("playAgain").addEventListener("click", function () {
+            location.reload()
+        })
+    }
+
+    function check() {
+        let divs = document.getElementsByClassName("field")
+        let matrix = [
+            [divs[0], divs[1], divs[2]],
+            [divs[3], divs[4], divs[5]],
+            [divs[6], divs[7], divs[8]]
+        ]
+
+        for (let i = 0; i < 3; i++) {
+            if (matrix[i][0].name === matrix[i][1].name && matrix[i][1].name === matrix[i][2].name) {
+                return matrix[i][0].name
+            }
+        }
+
+        for (let i = 0; i < 3; i++) {
+            if (matrix[0][i].name === matrix[1][i].name && matrix[1][i].name === matrix[2][i].name) {
+                return matrix[0][i].name
+            }
+        }
+
+        if ((matrix[0][0].name === matrix[1][1].name && matrix[1][1].name === matrix[2][2].name) ||
+            (matrix[0][2].name === matrix[1][1].name && matrix[1][1].name === matrix[2][0].name)) {
+            return matrix[1][1].name;
+        }
+
+        return null;
+    }
+
+</script>
+
+</html>

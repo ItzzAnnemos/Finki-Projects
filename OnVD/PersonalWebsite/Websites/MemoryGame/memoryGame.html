@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        .card {
+            width: 150px;
+            height: 150px;
+            margin: 5px;
+            background-color: #2f2f2f;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<h1>Meморија</h1>
+<div style="text-align:left; float:left">
+    <table border="1">
+        <tr>
+            <td id="11"><img src=""/></td>
+            <td id="12"><img src=""/></td>
+            <td id="13"><img src=""/></td>
+            <td id="14"><img src=""/></td>
+        </tr>
+        <tr>
+            <td id="21"><img src=""/></td>
+            <td id="22"><img src=""/></td>
+            <td id="23"><img src=""/></td>
+            <td id="24"><img src=""/></td>
+        </tr>
+        <tr>
+            <td id="31"><img src=""/></td>
+            <td id="32"><img src=""/></td>
+            <td id="33"><img src=""/></td>
+            <td id="34"><img src=""/></td>
+        </tr>
+        <tr>
+            <td id="41"><img src=""/></td>
+            <td id="42"><img src=""/></td>
+            <td id="43"><img src=""/></td>
+            <td id="44"><img src=""/></td>
+        </tr>
+    </table>
+    <input onclick="resetGame()" type="submit" value="RESET"/>
+</div>
+
+<br/>
+</body>
+
+<script>
+    const images = [
+        "img/banana.jpg",
+        "img/coconut.jpg",
+        "img/strawberry.jpg",
+        "img/lemon.jpg",
+        "img/peach.jpg",
+        "img/cherry.jpg",
+        "img/orange.jpg",
+        "img/watermelon.jpg"
+    ];
+
+    const imagePairs = images.concat(images);
+    const shuffledPairs = shuffleArray(imagePairs);
+
+    let index = 0;
+
+    for (let i = 1;i < 5;i++) {
+        for (let j = 1;j < 5;j++) {
+            let id = i.toString() + j;
+            let tmp = document.getElementById(id)
+            tmp.classList.add("card");
+            tmp.setAttribute("index", index++)
+            tmp.addEventListener("click", flip);
+        }
+    }
+
+    let flipped = []
+    let matchedPairs = 0
+
+    function flip() {
+        const selected = this
+        selected.style.backgroundImage = `url(${shuffledPairs[selected.getAttribute("index")]})`
+        flipped.push(selected)
+
+        if (flipped.length === 2) {
+            setTimeout(checkMatch, 1000)
+        }
+    }
+
+    function checkMatch() {
+        const [card1, card2] = flipped
+        const img1 = shuffledPairs[card1.getAttribute("index")]
+        const img2 = shuffledPairs[card2.getAttribute("index")]
+
+        if (img1 === img2) {
+            card1.removeEventListener("click", flip)
+            card2.removeEventListener("click", flip)
+            matchedPairs++
+
+            if (matchedPairs === images.length) {
+                alert("Congratulations! You've won!")
+            }
+        } else {
+            card1.style.backgroundImage = ""
+            card2.style.backgroundImage = ""
+        }
+        flipped = []
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function resetGame() {
+        matchedPairs = 0;
+        flipped = [];
+
+        const cards = document.querySelectorAll(".card");
+        cards.forEach(card => {
+            card.style.backgroundImage = "";
+            card.addEventListener("click", flip);
+        });
+
+        shuffleArray(shuffledPairs);
+
+        index = 0
+
+        for (let i = 1; i < 5; i++) {
+            for (let j = 1; j < 5; j++) {
+                let id = i.toString() + j;
+                let tmp = document.getElementById(id);
+                tmp.setAttribute("index", index++);
+            }
+        }
+    }
+
+</script>
+
+</html>

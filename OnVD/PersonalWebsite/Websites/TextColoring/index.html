@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    Red:<input id="red" type="number" min="1" max="255" value="0"></input> (0-255) <br/>
+    Green:<input id="green" type="number" min="1" max="255" value="0"></input> (0-255) <br/>
+    Blue:<input id="blue" type="number" min="1" max="255" value="0"></input> (0-255) <br/>
+    <br/>
+    <form>
+        <input id="start" type="radio" name="where" value="male" checked> Start<br>
+        <input id="end" type="radio" name="where" value="female"> End<br>
+    </form>
+    <br/>
+    Text:<input id="text" type="text" width="500px" value="input"></input><br/><br/>
+    <input type="button" value="Add" onclick="addText()"></input>
+    <input type="button" value="Delete" onclick="removeText()"></input>
+    <p id="main"></p>
+</div>
+
+</body>
+
+<script>
+    function addText() {
+        let red = document.getElementById("red").value
+        let green = document.getElementById("green").value
+        let blue = document.getElementById("blue").value
+        let text = document.getElementById("text").value
+        let container = document.getElementById("main")
+
+        red = parseInt(red)
+        green = parseInt(green)
+        blue = parseInt(blue)
+
+        let par = document.createElement("span")
+        par.innerText = text + "\n"
+        par.style.color = "rgb(" + red + "," + green + "," + blue + ")"
+
+        if (position() === "end") {
+            container.appendChild(par)
+        } else {
+            container.insertBefore(par, container.firstChild)
+        }
+    }
+
+    function removeText() {
+        let container = document.getElementById("main")
+
+        if (position() === "end") {
+            container.removeChild(container.lastChild)
+        } else {
+            container.removeChild(container.firstChild)
+        }
+    }
+
+    function position() {
+        let buttons = document.getElementsByName("where")
+        for (const button of buttons) {
+            if (button.checked) {
+                return button.id
+            }
+        }
+    }
+</script>
+</html>
