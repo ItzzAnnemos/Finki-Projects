@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+<h1>Search Results</h1>
+<div th:if="${#lists.isEmpty(events)}">
+    <p>No events found for your search.</p>
+</div>
+<form th:method="POST" th:action="@{/eventBooking}">
+    <h2>Choose an event:</h2>
+    <div th:each="event:${events}">
+        <div th:if="${event.getPopularityScore()} >= ${rating}">
+            <label>
+                <input type="radio" name="event" th:value="${event.getName()}">
+                <p>Name: <span th:text="${event.getName()}"></span></p>
+                <p>Description: <span th:text="${event.getDescription()}"></span></p>
+                <p>Rating: <span th:text="${event.getPopularityScore()}"></span></p>
+                <hr/>
+            </label>
+        </div>
+    </div>
+
+    <h2>Choose number of tickets:</h2>
+    <input type="number" name="numTickets" min="1" max="10"><br/>
+    <br/>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
