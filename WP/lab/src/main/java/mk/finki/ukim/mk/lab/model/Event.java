@@ -1,26 +1,23 @@
 package mk.finki.ukim.mk.lab.model;
 
+import lombok.Data;
+
+@Data
 public class Event {
+    private Long Id;
     private String name;
     private String description;
     private double popularityScore;
+    private Category category;
+    private Location location;
 
-    public Event(String name, String description, double popularityScore) {
+    public Event(String name, String description, double popularityScore, Category category, Location location) {
+        this.Id = (long) (Math.random() * 1000);
         this.name = name;
         this.description = description;
         this.popularityScore = popularityScore;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public double getPopularityScore() {
-        return popularityScore;
+        this.category = category;
+        this.location = location;
     }
 
     @Override

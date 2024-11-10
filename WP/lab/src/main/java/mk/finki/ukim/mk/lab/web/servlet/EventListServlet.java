@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import mk.finki.ukim.mk.lab.repository.EventRepository;
+import mk.finki.ukim.mk.lab.service.CategoryService;
 import mk.finki.ukim.mk.lab.service.EventService;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.thymeleaf.context.WebContext;
@@ -17,9 +19,11 @@ import java.io.IOException;
 public class EventListServlet extends HttpServlet {
     private final SpringTemplateEngine springTemplateEngine;
     private final EventService eventService;
-    public EventListServlet(SpringTemplateEngine springTemplateEngine, EventService eventService) {
+    private final CategoryService categoryService;
+    public EventListServlet(EventRepository eventRepository, SpringTemplateEngine springTemplateEngine, EventService eventService, CategoryService categoryService) {
         this.springTemplateEngine = springTemplateEngine;
         this.eventService = eventService;
+        this.categoryService = categoryService;
     }
 
     @Override
@@ -28,7 +32,10 @@ public class EventListServlet extends HttpServlet {
         WebContext context = new WebContext(application.buildExchange(req, resp));
 
         context.setVariable("events", eventService.listAll());
+        context.setVariable("categories", categoryService.listAll());
 
+/*
         springTemplateEngine.process("listEvents.html", context, resp.getWriter());
+*/
     }
 }

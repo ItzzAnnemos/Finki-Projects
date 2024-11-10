@@ -2,6 +2,8 @@
 <head>
     <meta charset="utf-8">
     <title>Event Booking page - Welcome and choose an Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style type="text/css">
         body {
             width: 800px;
@@ -14,16 +16,106 @@
     <h1>Welcome to our Event Booking App</h1>
 </header>
 <main>
-    <form th:method="POST" th:action="@{/search}">
-        <h2>Search for an Event:</h2>
-        <input type="text" name="query" placeholder="Search events"><br/>
-        <br/>
-        <input type="text" name="rating" placeholder="Search ratings"><br/>
-        <br>
-        <input type="submit" value="Search">
-    </form>
+    <div class="container mb-3">
+        <div class="row">
+            <div class="col-12">
+                <form th:method="POST" th:action="@{/events/search}">
+                    <h2>Search for an Event:</h2>
+                    <input type="text" name="queryParam" placeholder="Search events"><br/>
+                    <br/>
+                    <input type="text" name="ratingParam" placeholder="Search ratings"><br/>
+                    <br>
+                    <select name="categoryParam">
+                        <option name="categoryParam">Choose category</option>
+                        <option name="categoryParam" th:text="${categories.get(0)}"></option>
+                        <option name="categoryParam" th:text="${categories.get(1)}"></option>
+                        <option name="categoryParam" th:text="${categories.get(2)}"></option>
+                        <option name="categoryParam" th:text="${categories.get(3)}"></option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <form th:method="POST" th:action="@{/eventBooking}">
+    <div class="container mb-3">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">/</th>
+                            <th scope="col">Event name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Location</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="event : ${events}">
+                            <td>
+                                <label>
+                                    <input type="radio" name="event" th:value="${event.getName()}"
+                                           onclick="setSelectedEvent()">
+                                </label>
+                            </td>
+                            <td th:text="${event.getName()}"></td>
+                            <td th:text="${event.getDescription()}"></td>
+                            <td th:text="${event.getPopularityScore()}"></td>
+                            <td th:text="${event.getLocation().getName()}"></td>
+                            <td class="text-right">
+                                <th:block>
+                                    <form th:action="@{'/events/delete/{id}' (id=${event.getId()})}"
+                                          th:method="DELETE">
+                                        <button type="submit"
+                                                class="btn btn-sm btn-danger">
+                                            <i class="fa fa-trash">Delete</i>
+                                        </button>
+                                    </form>
+                                </th:block>
+                                <th:block>
+                                    <a th:href="@{'/events/edit-form/{id}' (id=${event.getId()})}"
+                                       class="btn btn-sm btn-info">
+                                        <i class="fa fa-trash">Edit</i>
+                                    </a>
+                                </th:block>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <a href="/events/add-form" class="btn btn-block btn-dark">
+                            Add new Event
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <form th:method="POST" th:action="@{/eventBooking}">
+                    <h2>Enter name:</h2>
+                    <input type="text" name="attendeeName" required><br/>
+                    <h2>Enter address:</h2>
+                    <input type="text" name="attendeeAddress" required><br/>
+                    <h2>Choose number of tickets:</h2>
+                    <input type="number" name="numTickets" min="1" max="10" required><br/>
+                    <br/>
+                    <input type="hidden" id="selectedEventName" name="eventName" required>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<form th:method="POST" th:action="@{/eventBooking}">
         <h2>Choose an event:</h2>
         <div th:each="event:${events}">
             <label>
@@ -31,19 +123,36 @@
                 <p>Name: <span th:text="${event.getName()}"></span></p>
                 <p>Description: <span th:text="${event.getDescription()}"></span></p>
                 <p>Rating: <span th:text="${event.getPopularityScore()}"></span></p>
+                <p>Location: <span th:text="${event.getLocation().getName()}"></span></p>
                 <hr/>
             </label>
         </div>
-        <!-- Display radio buttons for each event,
+        &lt;!&ndash; Display radio buttons for each event,
                 the value should be the event name
                 and the displayed text should be
-                Name: <event_name>, Description: <event_description>, Rating: <popularity_score> -->
+                Name: <event_name>, Description: <event_description>, Rating: <popularity_score> &ndash;&gt;
 
         <h2>Choose number of tickets:</h2>
         <input type="number" name="numTickets" min="1" max="10"><br/>
         <br/>
         <input type="submit" value="Submit">
-    </form>
+    </form>-->
 </main>
 </body>
+<script>
+    function setSelectedEvent() {
+        const values = document.getElementsByName("event");
+        let tmp = ""
+
+        for (let i = 0; i < values.length;i++) {
+            if (values[i].checked) {
+                tmp = values[i].value
+                break;
+            }
+        }
+        console.log("Selected Event:", tmp);
+
+        document.getElementById("selectedEventName").value = tmp
+    }
+</script>
 </html>

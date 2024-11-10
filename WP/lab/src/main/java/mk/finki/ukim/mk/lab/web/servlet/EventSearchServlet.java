@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import mk.finki.ukim.mk.lab.model.Category;
 import mk.finki.ukim.mk.lab.model.Event;
 import mk.finki.ukim.mk.lab.service.EventService;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -15,7 +16,7 @@ import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "EventSearchServlet", urlPatterns = "/search")
+@WebServlet(name = "EventSearchServlet", urlPatterns = "/se")
 @ServletComponentScan
 public class EventSearchServlet extends HttpServlet {
     private final SpringTemplateEngine springTemplateEngine;
@@ -30,16 +31,25 @@ public class EventSearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String query = req.getParameter("query");
         String ratingParam = req.getParameter("rating");
-
-        Integer rating = (ratingParam != null && !ratingParam.isEmpty()) ? Integer.parseInt(ratingParam) : 0;
-
-        List<Event> events = eventService.searchEvents(query);
+        String category = req.getParameter("category");
 
         JakartaServletWebApplication application = JakartaServletWebApplication.buildApplication(req.getServletContext());
         WebContext context = new WebContext(application.buildExchange(req, resp));
-        context.setVariable("events", events);
-        context.setVariable("rating", rating);
 
+        Integer rating = (ratingParam != null && !ratingParam.isEmpty()) ? Integer.parseInt(ratingParam) : 0;
+
+        List<Event> events;
+        if (category.isEmpty() || category.equals("Choose category")) {
+            events = eventService.searchEvents(query);
+        } else {
+            events = eventService.searchEventsByCategory(category);
+            if (query != null && !query.isEmpty()) {
+                events.addAll(eventService.searchEvents(query));
+            }
+        }
+        context.setVariable("events", events);
+
+        context.setVariable("rating", rating);
         springTemplateEngine.process("searchResults.html", context, resp.getWriter());
     }
 }
