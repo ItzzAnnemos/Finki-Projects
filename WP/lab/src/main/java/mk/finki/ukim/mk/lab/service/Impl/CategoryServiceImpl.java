@@ -1,8 +1,8 @@
 package mk.finki.ukim.mk.lab.service.Impl;
 
 import mk.finki.ukim.mk.lab.model.Category;
-import mk.finki.ukim.mk.lab.model.Event;
-import mk.finki.ukim.mk.lab.repository.CategoryRepository;
+import mk.finki.ukim.mk.lab.repository.inMemory.InMemCategoryRepository;
+import mk.finki.ukim.mk.lab.repository.jpa.CategoryRepository;
 import mk.finki.ukim.mk.lab.service.CategoryService;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +19,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> listAll() {
-        return categoryRepository.listAll();
+        return categoryRepository.findAll();
     }
 
     @Override
     public Optional<Category> findById(Long Id) {
-        return categoryRepository.listAll().stream().filter(e -> e.getId().equals(Id)).findFirst();
+        return categoryRepository.findAll().stream().filter(e -> e.getId().equals(Id)).findFirst();
     }
 }

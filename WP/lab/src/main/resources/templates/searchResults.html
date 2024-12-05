@@ -5,6 +5,7 @@
     <title>Search Results</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style type="text/css">
         body {
             width: 800px;
@@ -32,6 +33,7 @@
                             <th scope="col">Description</th>
                             <th scope="col">Rating</th>
                             <th scope="col">Location</th>
+                            <th scope="col">Tickets</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -46,21 +48,31 @@
                             <td th:text="${event.getDescription()}"></td>
                             <td th:text="${event.getPopularityScore()}"></td>
                             <td th:text="${event.getLocation().getName()}"></td>
+                            <td th:text="${event.getNumTickets()}"></td>
                             <td class="text-right">
                                 <th:block>
                                     <form th:action="@{'/events/delete/{id}' (id=${event.getId()})}"
                                           th:method="DELETE">
                                         <button type="submit"
-                                                class="btn btn-sm btn-danger">
-                                            <i class="fa fa-trash">Delete</i>
+                                                class="btn btn-sm btn-danger text-nowrap">
+                                            <i class="fa fa-trash"></i>Delete
                                         </button>
                                     </form>
                                 </th:block>
                                 <th:block>
                                     <a th:href="@{'/events/edit-form/{id}' (id=${event.getId()})}"
-                                       class="btn btn-sm btn-info">
-                                        <i class="fa fa-trash">Edit</i>
+                                       class="btn btn-sm btn-info mb-1">
+                                        <i class="fa fa-edit"></i>Edit
                                     </a>
+                                </th:block>
+                                <th:block>
+                                    <form th:action="@{'/events/like/{id}' (id=${event.getId()})}"
+                                          th:method="POST">
+                                        <button type="submit" class="btn btn-sm btn-primary"
+                                                th:disabled="${event.isLiked()}">
+                                            <i class="fa fa-thumbs-up"></i>Like
+                                        </button>
+                                    </form>
                                 </th:block>
                             </td>
                         </tr>
@@ -107,7 +119,6 @@
                 break;
             }
         }
-        console.log("Selected Event:", tmp);
 
         document.getElementById("selectedEventName").value = tmp
     }

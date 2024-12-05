@@ -1,9 +1,18 @@
 package mk.finki.ukim.mk.lab.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
+@Entity
 public class EventBooking {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+
     private String eventName;
     private String attendeeName;
     private String attendeeAddress;
@@ -14,5 +23,9 @@ public class EventBooking {
         this.attendeeName = attendeeName;
         this.attendeeAddress = attendeeAddress;
         this.numberOfTickets = numberOfTickets;
+    }
+
+    public EventBooking() {
+
     }
 }

@@ -51,6 +51,15 @@
                                placeholder="Rating">
                     </div>
                     <div class="form-group">
+                        <label for="Tickets">Available tickets</label>
+                        <input type="number"
+                               class="form-control"
+                               id="tickets"
+                               name="tickets"
+                               th:value="(${event} != null ? ${event.getNumTickets()} : '')"
+                               placeholder="Tickets">
+                    </div>
+                    <div class="form-group">
                         <label>Category</label>
                         <select name="category" class="form-control">
                             <option th:if="${event} != null"

@@ -1,17 +1,24 @@
 package mk.finki.ukim.mk.lab.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Objects;
-
 @Data
+@Entity
 public class Category {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+
     private String category;
 
     public Category(String category) {
-        this.Id = (long) (Math.random() * 1000);
         this.category = category;
+    }
+
+    public Category() {
+
     }
 
     public boolean equals(Category c) {

@@ -13,7 +13,11 @@ public interface EventService {
     List<Event> searchEventsByCategory(String category);
     List<Event> searchEventsByNameAndCategory(String text, String category);
     Optional<Event> findById(Long Id);
-    Optional<Event> save(String name, String description, double popularityScore,
-                         Long category, Long location);
+    Optional<Event> findByName(String name);
+    void save(String name, String description, double popularityScore,
+                         Long category, Long location, int numTickets);
     void deleteById(Long Id);
+    void like(Long Id);
+    void reserveCard(Long id, int numTickets);
+    void update(Long eventId, String name, String description, double popularityScore, Long categoryId, Long locationId, int numTickets);
 }

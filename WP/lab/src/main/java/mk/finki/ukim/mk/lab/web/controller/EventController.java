@@ -61,16 +61,13 @@ public class EventController {
                             @RequestParam String description,
                             @RequestParam double popularityScore,
                             @RequestParam Long categoryId,
-                            @RequestParam Long locationId) {
-        if (this.eventService.findById(eventId).isPresent()) {
-            Event event = this.eventService.findById(eventId).get();
-            event.setName(name);
-            event.setDescription(description);
-            event.setPopularityScore(popularityScore);
-            if (this.categoryService.findById(categoryId).isPresent())
-                event.setCategory(this.categoryService.findById(categoryId).get());
-            if (this.locationService.findById(locationId).isPresent())
-                event.setLocation(this.locationService.findById(locationId).get());
+                            @RequestParam Long locationId,
+                            @RequestParam int tickets) {
+
+        if (eventId != null) {
+            this.eventService.update(eventId, name, description, popularityScore, categoryId, locationId, tickets);
+        } else {
+            this.eventService.save(name, description, popularityScore, categoryId, locationId, tickets);
         }
         return "redirect:/events";
     }
@@ -79,6 +76,12 @@ public class EventController {
     @PostMapping("/delete/{id}")
     public String deleteEvent(@PathVariable Long id) {
         this.eventService.deleteById(id);
+        return "redirect:/events";
+    }
+
+    @PostMapping("/like/{id}")
+    public String like(@PathVariable Long id) {
+        this.eventService.like(id);
         return "redirect:/events";
     }
 
@@ -92,12 +95,18 @@ public class EventController {
     }
 
     @PostMapping("/add")
-    public String saveEvent(@RequestParam String name,
+    public String saveEvent(@RequestParam(required = false) Long id,
+                            @RequestParam String name,
                             @RequestParam String description,
                             @RequestParam(name = "rating") double popularityScore,
                             @RequestParam Long category,
-                            @RequestParam Long location) {
-        this.eventService.save(name, description, popularityScore, category, location);
+                            @RequestParam Long location,
+                            @RequestParam int tickets) {
+        if (eventService.findById(id).isPresent()) {
+            eventService.update(id, name, description, popularityScore, category, location, tickets);
+        } else {
+            this.eventService.save(name, description, popularityScore, category, location, tickets);
+        }
         return "redirect:/events";
     }
 
