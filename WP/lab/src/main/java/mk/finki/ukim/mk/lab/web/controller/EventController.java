@@ -3,12 +3,14 @@ package mk.finki.ukim.mk.lab.web.controller;
 import mk.finki.ukim.mk.lab.model.Category;
 import mk.finki.ukim.mk.lab.model.Event;
 import mk.finki.ukim.mk.lab.model.Location;
+import mk.finki.ukim.mk.lab.model.User;
 import mk.finki.ukim.mk.lab.service.CategoryService;
 import mk.finki.ukim.mk.lab.service.EventService;
 import mk.finki.ukim.mk.lab.service.LocationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import jakarta.servlet.http.HttpSession;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,7 @@ public class EventController {
     }
 
     @GetMapping
-    public String getEventsPage(@RequestParam(required = false) String error, Model model) {
+    public String getEventsPage(@RequestParam(required = false) String error, Model model, HttpSession session) {
         if (error != null && !error.isEmpty()) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
@@ -38,6 +40,8 @@ public class EventController {
         List<Category> categories = this.categoryService.listAll();
         model.addAttribute("events", events);
         model.addAttribute("categories", categories);
+        User user = (User) session.getAttribute("user");
+        model.addAttribute("user", user.getName() + " " + user.getSurname());
         return "listEvents";
     }
 

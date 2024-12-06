@@ -12,4 +12,5 @@ import java.util.List;
 @Repository
 public interface EventBookingRepository extends JpaRepository<EventBooking, Long> {
     List<EventBooking> searchEventBookingByEventName(String eventName);
+    List<EventBooking> findAllByUser_Username(String username);
 }

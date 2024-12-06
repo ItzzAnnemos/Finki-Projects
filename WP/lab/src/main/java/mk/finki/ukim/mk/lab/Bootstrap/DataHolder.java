@@ -4,9 +4,11 @@ import jakarta.annotation.PostConstruct;
 import mk.finki.ukim.mk.lab.model.Category;
 import mk.finki.ukim.mk.lab.model.Event;
 import mk.finki.ukim.mk.lab.model.Location;
+import mk.finki.ukim.mk.lab.model.User;
 import mk.finki.ukim.mk.lab.repository.jpa.CategoryRepository;
 import mk.finki.ukim.mk.lab.repository.jpa.EventRepository;
 import mk.finki.ukim.mk.lab.repository.jpa.LocationRepository;
+import mk.finki.ukim.mk.lab.repository.jpa.UserRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -17,15 +19,18 @@ public class DataHolder {
     public static List<Event> events = null;
     public static List<Category> categories = null;
     public static List<Location> locations = null;
+    public static List<User> users = null;
 
     private final CategoryRepository categoryRepository;
     private final LocationRepository locationRepository;
     private final EventRepository eventRepository;
+    private final UserRepository userRepository;
 
-    public DataHolder(CategoryRepository categoryRepository, LocationRepository locationRepository, EventRepository eventRepository) {
+    public DataHolder(CategoryRepository categoryRepository, LocationRepository locationRepository, EventRepository eventRepository, UserRepository userRepository) {
         this.categoryRepository = categoryRepository;
         this.locationRepository = locationRepository;
         this.eventRepository = eventRepository;
+        this.userRepository = userRepository;
     }
 
 
@@ -132,6 +137,13 @@ public class DataHolder {
                     locations.get(4),
                     400));
             this.eventRepository.saveAll(events);
+        }
+
+        users = new ArrayList<>();
+        if (userRepository.count() == 0) {
+            users.add(new User("nikola.serafimov", "ns", "Nikola", "Serafimov", "Oblesevo"));
+            users.add(new User("branko.milenkov", "bm", "Branko", "Milenkov", "Radovish"));
+            this.userRepository.saveAll(users);
         }
     }
 }
