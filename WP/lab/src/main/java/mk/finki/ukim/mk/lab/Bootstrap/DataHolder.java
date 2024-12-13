@@ -5,10 +5,12 @@ import mk.finki.ukim.mk.lab.model.Category;
 import mk.finki.ukim.mk.lab.model.Event;
 import mk.finki.ukim.mk.lab.model.Location;
 import mk.finki.ukim.mk.lab.model.User;
+import mk.finki.ukim.mk.lab.model.enumerations.Role;
 import mk.finki.ukim.mk.lab.repository.jpa.CategoryRepository;
 import mk.finki.ukim.mk.lab.repository.jpa.EventRepository;
 import mk.finki.ukim.mk.lab.repository.jpa.LocationRepository;
 import mk.finki.ukim.mk.lab.repository.jpa.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -26,11 +28,14 @@ public class DataHolder {
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
 
-    public DataHolder(CategoryRepository categoryRepository, LocationRepository locationRepository, EventRepository eventRepository, UserRepository userRepository) {
+    private final PasswordEncoder passwordEncoder;
+
+    public DataHolder(CategoryRepository categoryRepository, LocationRepository locationRepository, EventRepository eventRepository, UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.categoryRepository = categoryRepository;
         this.locationRepository = locationRepository;
         this.eventRepository = eventRepository;
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -141,8 +146,9 @@ public class DataHolder {
 
         users = new ArrayList<>();
         if (userRepository.count() == 0) {
-            users.add(new User("nikola.serafimov", "ns", "Nikola", "Serafimov", "Oblesevo"));
-            users.add(new User("branko.milenkov", "bm", "Branko", "Milenkov", "Radovish"));
+            users.add(new User("nikola.serafimov", passwordEncoder.encode("ns"), "Nikola", "Serafimov", "Oblesevo", Role.ROLE_USER));
+            users.add(new User("branko.milenkov", passwordEncoder.encode("bm"), "Branko", "Milenkov", "Radovish", Role.ROLE_USER));
+            users.add(new User("admin", passwordEncoder.encode("admin"), "admin", "admin", "-", Role.ROLE_ADMIN));
             this.userRepository.saveAll(users);
         }
     }

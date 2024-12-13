@@ -1,5 +1,6 @@
 package mk.finki.ukim.mk.lab.web.controller;
 
+import mk.finki.ukim.mk.lab.model.enumerations.Role;
 import mk.finki.ukim.mk.lab.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,10 +34,11 @@ public class RegisterController {
                            @RequestParam String repeatedPassword,
                            @RequestParam String name,
                            @RequestParam String surname,
-                           @RequestParam String address
+                           @RequestParam String address,
+                           @RequestParam Role role
     ) {
         try {
-            this.userService.register(username, password, repeatedPassword, name, surname, address);
+            this.userService.register(username, password, repeatedPassword, name, surname, address, role);
             return "redirect:/login";
         } catch (RuntimeException ex) {
             return "redirect:/register?error=" + ex.getMessage();

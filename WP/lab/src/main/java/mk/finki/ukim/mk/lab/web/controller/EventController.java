@@ -1,5 +1,6 @@
 package mk.finki.ukim.mk.lab.web.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import mk.finki.ukim.mk.lab.model.Category;
 import mk.finki.ukim.mk.lab.model.Event;
 import mk.finki.ukim.mk.lab.model.Location;
@@ -7,6 +8,9 @@ import mk.finki.ukim.mk.lab.model.User;
 import mk.finki.ukim.mk.lab.service.CategoryService;
 import mk.finki.ukim.mk.lab.service.EventService;
 import mk.finki.ukim.mk.lab.service.LocationService;
+import mk.finki.ukim.mk.lab.service.UserService;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +35,8 @@ public class EventController {
     }
 
     @GetMapping
-    public String getEventsPage(@RequestParam(required = false) String error, Model model, HttpSession session) {
+    public String getEventsPage(@RequestParam(required = false) String error, Model model,
+                                HttpSession session, HttpServletRequest request) {
         if (error != null && !error.isEmpty()) {
             model.addAttribute("hasError", true);
             model.addAttribute("error", error);
@@ -40,12 +45,13 @@ public class EventController {
         List<Category> categories = this.categoryService.listAll();
         model.addAttribute("events", events);
         model.addAttribute("categories", categories);
-        User user = (User) session.getAttribute("user");
-        model.addAttribute("user", user.getName() + " " + user.getSurname());
+        String username = request.getRemoteUser();
+        model.addAttribute("user", username);
         return "listEvents";
     }
 
     @GetMapping("/edit-form/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String getEditEventForm(@PathVariable Long id, Model model) {
         if (this.eventService.findById(id).isPresent()) {
             Event event = this.eventService.findById(id).get();
@@ -60,6 +66,7 @@ public class EventController {
     }
 
     @PostMapping("/edit/{eventId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String editEvent(@PathVariable Long eventId,
                             @RequestParam String name,
                             @RequestParam String description,
@@ -90,6 +97,7 @@ public class EventController {
     }
 
     @GetMapping("/add-form")
+    @PreAuthorize("hasRole('ADMIN')")
     public String getAddEventPage(Model model) {
         List<Category> categories = this.categoryService.listAll();
         List<Location> locations = this.locationService.findAll();
@@ -99,6 +107,7 @@ public class EventController {
     }
 
     @PostMapping("/add")
+    @PreAuthorize("hasRole('ADMIN')")
     public String saveEvent(@RequestParam(required = false) Long id,
                             @RequestParam String name,
                             @RequestParam String description,
@@ -140,4 +149,10 @@ public class EventController {
 
         return "searchResults";
     }
+
+    @GetMapping("/accessDenied")
+    public String getAccessDeniedPage(Model model) {
+        return "accessDenied";
+    }
+
 }

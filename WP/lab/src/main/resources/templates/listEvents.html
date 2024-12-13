@@ -18,11 +18,18 @@
             <p class="lead text-muted mb-2">
                 Welcome back, <span th:text="${user}" class="fw-bold text-primary"></span>
             </p>
-            <a th:href="@{/bookings}" class="btn btn-primary btn-sm">
-                <i class="fa fa-calendar"></i> My Bookings
-            </a>
+            <th:block sec:authorize="hasRole('USER')">
+                <a th:href="@{/bookings}" class="btn btn-primary btn-sm">
+                    <i class="fa fa-calendar"></i> My Bookings
+                </a>
+            </th:block>
             <a th:href="@{/logout}" class="btn btn-danger btn-sm">
                 <i class="fa fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+        <div th:if="${user == null}" class="text-end">
+            <a th:href="@{/login}" class="btn btn-primary btn-sm">
+                <i class="fa fa-sign-in-alt"></i> Login
             </a>
         </div>
     </header>
@@ -80,14 +87,18 @@
                 <td th:text="${event.getNumTickets()}"></td>
                 <td>
                     <div class="btn-group">
-                        <form th:action="@{'/events/delete/{id}' (id=${event.getId()})}" th:method="DELETE">
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </form>
-                        <a th:href="@{'/events/edit-form/{id}' (id=${event.getId()})}" class="btn btn-sm btn-info">
-                            <i class="fa fa-edit"></i>
-                        </a>
+                        <th:block sec:authorize="hasRole('ADMIN')">
+                            <form th:action="@{'/events/delete/{id}' (id=${event.getId()})}" th:method="DELETE">
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </th:block>
+                        <th:block sec:authorize="hasRole('ADMIN')">
+                            <a th:href="@{'/events/edit-form/{id}' (id=${event.getId()})}" class="btn btn-sm btn-info">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </th:block>
                         <form th:action="@{'/events/like/{id}' (id=${event.getId()})}" th:method="POST">
                             <button type="submit" class="btn btn-sm btn-primary" th:disabled="${event.isLiked()}">
                                 <i class="fa fa-thumbs-up"></i>
@@ -100,29 +111,34 @@
         </table>
     </div>
 
-    <div class="text-end mb-4">
-        <a href="/events/add-form" class="btn btn-dark">
-            <i class="fa fa-plus"></i> Add New Event
-        </a>
-    </div>
-
-    <div class="card shadow">
-        <div class="card-body">
-            <h2 class="card-title text-secondary">Book Your Tickets</h2>
-            <form th:method="POST" th:action="@{/eventBooking}" class="row g-3">
-                <div class="col-md-6">
-                    <input type="number" name="numTickets" class="form-control" placeholder="Number of tickets" min="1"
-                           max="1000" required>
-                </div>
-                <input type="hidden" id="selectedEventName" name="eventName" required>
-                <div class="col-md-6 text-end">
-                    <button type="submit" class="btn btn-success">
-                        <i class="fa fa-ticket-alt"></i> Submit
-                    </button>
-                </div>
-            </form>
+    <th:block sec:authorize="hasRole('ADMIN')">
+        <div class="text-end mb-4">
+            <a href="/events/add-form" class="btn btn-dark">
+                <i class="fa fa-plus"></i> Add New Event
+            </a>
         </div>
-    </div>
+    </th:block>
+
+    <th:block sec:authorize="!hasRole('ADMIN')">
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="card-title text-secondary">Book Your Tickets</h2>
+                <form th:method="POST" th:action="@{/eventBooking}" class="row g-3">
+                    <div class="col-md-6">
+                        <input type="number" name="numTickets" class="form-control" placeholder="Number of tickets"
+                               min="1"
+                               max="1000" required>
+                    </div>
+                    <input type="hidden" id="selectedEventName" name="eventName" required>
+                    <div class="col-md-6 text-end">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-ticket-alt"></i> Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </th:block>
 </div>
 
 <script>
