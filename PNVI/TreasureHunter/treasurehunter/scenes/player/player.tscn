@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx5t8k44cmdig"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_n5lpo"]
+
+[sub_resource type="Environment" id="Environment_jtmox"]
+background_mode = 1
+background_color = Color(0.529412, 0.807843, 0.921569, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17lyg"]
+size = Vector3(1, 2.17047, 1)
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_mask = 2
+script = ExtResource("1_n5lpo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+environment = SubResource("Environment_jtmox")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05844, 0)
+shape = SubResource("BoxShape3D_17lyg")

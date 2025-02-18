@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccm3m5pemn6ye"]
+
+[ext_resource type="PackedScene" uid="uid://bgxpftot27gne" path="res://resources/objects/wooden_bench_3d.glb" id="1_6iktc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8y1xw"]
+size = Vector3(1.03711, 0.293152, 0.423973)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1p58"]
+size = Vector3(2.573, 1, 0.199097)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="wooden_bench_3d" parent="." instance=ExtResource("1_6iktc")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.0108204, 0.465262, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.0408936, 0.127792, 0.000161827)
+shape = SubResource("BoxShape3D_8y1xw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, 0.65, -0.43681)
+shape = SubResource("BoxShape3D_l1p58")

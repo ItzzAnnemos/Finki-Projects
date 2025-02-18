@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw8x1bh6066l3"]
+
+[ext_resource type="PackedScene" uid="uid://277m3nvwsind" path="res://resources/objects/othonna_cerarioides_2k.gltf" id="1_qyp1t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mgr4"]
+size = Vector3(3.90622, 1.95911, 1.79236)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="othonna_cerarioides_2k" parent="." instance=ExtResource("1_qyp1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00900745, -0.432363, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0975494, 0.479553, -0.274719)
+shape = SubResource("BoxShape3D_7mgr4")

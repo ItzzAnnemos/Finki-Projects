@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj5fsheu5xcs5"]
+
+[ext_resource type="PackedScene" uid="uid://bpcjmo4daaviv" path="res://resources/objects/brass_vase_03_2k.gltf" id="1_6dpes"]
+[ext_resource type="Script" path="res://scenes/collectibles/vase.gd" id="2_8v1rt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5h357"]
+radius = 0.143247
+height = 0.771019
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="." groups=["collectibles"]]
+collision_layer = 2
+script = ExtResource("2_8v1rt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_5h357")
+
+[node name="blend_export" parent="Area3D" instance=ExtResource("1_6dpes")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0053544, -0.337321, 0)

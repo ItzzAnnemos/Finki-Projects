@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://r6jc402edte5"]
+
+[ext_resource type="PackedScene" uid="uid://cji03h0fsv0il" path="res://resources/objects/gold-necklace-jewelry-pendant-chain-links-gold-tea.glb" id="1_yma4e"]
+[ext_resource type="Script" path="res://scenes/collectibles/necklace.gd" id="2_g08d7"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uq3wf"]
+height = 0.085591
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="." groups=["collectibles"]]
+collision_layer = 2
+script = ExtResource("2_g08d7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_uq3wf")
+
+[node name="gold-necklace-jewelry-pendant-chain-links-gold-tea" parent="Area3D" instance=ExtResource("1_yma4e")]

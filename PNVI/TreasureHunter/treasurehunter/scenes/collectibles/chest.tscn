@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn7fq7g3dhyrx"]
+
+[ext_resource type="PackedScene" uid="uid://cbaavbwv87oao" path="res://resources/objects/treasure_chest_2k.gltf" id="1_xhy8u"]
+[ext_resource type="Script" path="res://scenes/collectibles/chest.gd" id="2_mdpkh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ow6af"]
+size = Vector3(0.934082, 0.634033, 0.52594)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="." groups=["collectibles"]]
+collision_layer = 2
+script = ExtResource("2_mdpkh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170898, 0.0303955, -0.000152588)
+shape = SubResource("BoxShape3D_ow6af")
+
+[node name="treasure_chest_2k" parent="Area3D" instance=ExtResource("1_xhy8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.279234, 0)

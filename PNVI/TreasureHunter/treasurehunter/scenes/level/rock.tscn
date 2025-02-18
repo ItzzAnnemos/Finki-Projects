@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cirub25wta1v0"]
+
+[ext_resource type="PackedScene" uid="uid://b8uwwas54v5gi" path="res://resources/objects/namaqualand_cliff_02_2k.gltf" id="1_5qgsu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_quf16"]
+size = Vector3(17.2463, 6.10327, 4.91406)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="namaqualand_cliff_02_2k" parent="." instance=ExtResource("1_5qgsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.485107, 0, 3.42334)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.440063, 3.026, 2.37939)
+shape = SubResource("BoxShape3D_quf16")
